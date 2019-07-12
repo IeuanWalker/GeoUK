@@ -26,5 +26,9 @@
     <Copyright>Ieuan Walker</Copyright>
     <Description>Geodetic transformations for UK based coordinate systems.</Description>
     <PackageProjectUrl>https://github.com/IeuanWalker/GeoUK</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/IeuanWalker/GeoUK/master/icon.png?token=ABR5VM4TE7T4QWBI73CEQPS5FECLI</PackageIconUrl>
+    <RepositoryUrl>https://github.com/IeuanWalker/GeoUK</RepositoryUrl>
+    <PackageTags>Geodetic, Geo, WGS84, BNG, OS, coordinate, OSGB36</PackageTags>
+    <PackageLicenseExpression>LGPL-3.0</PackageLicenseExpression>
   </PropertyGroup>
 </Project>
