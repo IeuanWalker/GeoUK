@@ -53,4 +53,3 @@ steps:
     publishVstsFeed: 'TestFeed'
     versioningScheme: 'off'
     allowPackageConflicts: true
-view rawazure-pipelines.yml hosted with ❤ by GitHub
