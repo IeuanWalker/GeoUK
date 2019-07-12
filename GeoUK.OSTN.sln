@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoUK.OSTN", "GeoUK.OSTN\GeoUK.OSTN.csproj", "{E7C614AC-E67D-4E04-BA4E-E1BBF4CAC6FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoUK", "GeoUK\GeoUK.csproj", "{5C458FBF-4E2A-4F9D-ACC2-9CE5BED34236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoUK.OSTN.Tests", "GeoUK.OSTN.Tests\GeoUK.OSTN.Tests.csproj", "{7DAF4F03-B372-43B2-A22C-64C2790BCF68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7C614AC-E67D-4E04-BA4E-E1BBF4CAC6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C614AC-E67D-4E04-BA4E-E1BBF4CAC6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C614AC-E67D-4E04-BA4E-E1BBF4CAC6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C614AC-E67D-4E04-BA4E-E1BBF4CAC6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C458FBF-4E2A-4F9D-ACC2-9CE5BED34236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C458FBF-4E2A-4F9D-ACC2-9CE5BED34236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C458FBF-4E2A-4F9D-ACC2-9CE5BED34236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C458FBF-4E2A-4F9D-ACC2-9CE5BED34236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DAF4F03-B372-43B2-A22C-64C2790BCF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DAF4F03-B372-43B2-A22C-64C2790BCF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DAF4F03-B372-43B2-A22C-64C2790BCF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DAF4F03-B372-43B2-A22C-64C2790BCF68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
