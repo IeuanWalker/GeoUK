@@ -25,5 +25,6 @@
     <Company>Ieuan Walker</Company>
     <Copyright>Ieuan Walker</Copyright>
     <Description>Geodetic transformations for UK based coordinate systems.</Description>
+    <PackageProjectUrl>https://github.com/IeuanWalker/GeoUK</PackageProjectUrl>
   </PropertyGroup>
 </Project>
