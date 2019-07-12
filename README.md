@@ -1,14 +1,16 @@
 
 This is port from [GeoUK](https://bitbucket.org/johnnewcombe/geouk/src/master/). I created this port to convert the project to .NET Standard
 
-The original authors have created a blog post detailing how to use both NuGet packages - [Converting Latitude and Longitude to British National Grid in C#](http://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio). Please go and read this article to get a better understand the concepts used. 
+The original authors have created a blog post detailing how to use both NuGet packages - [Converting Latitude and Longitude to British National Grid in C#](http://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio). Please go and read this article to get a better understanding of the concepts used. 
+
+> TIP: When working with location i like to use this website - [Grid reference finder](https://gridreferencefinder.com/)
 
 
 # GeoUK
 The project allows for a conversion from GPS coordinates to British National Grid and back again. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
 # GeoUK.OSTN
-The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a greater accuracy. A full description of how to use this package can be found in the CodeProject article [Converting Latitude and Longitude to British National Grid in C#](http://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio)
+The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a greater accuracy. A full description of how to use this package can be found in the CodeProject article [Converting Latitude and Longitude to British National Grid in C#](http://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio). The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
 # How to use
 
@@ -71,3 +73,4 @@ Osgb36 bng = GeoUK.OSTN.Transform.Etrs89ToOsgb(latLong);
 ```
 
 # Liecence
+Both NuGet packages are licenced under The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html). This to respect the previous arthors licence. Learn more here - [Link](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))
