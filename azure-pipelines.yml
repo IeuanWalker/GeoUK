@@ -26,7 +26,7 @@ steps:
   inputs:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
-    projects: 'CommonLib/CommonLib.csproj'
+    projects: 'GeoUK/GeoUK.csproj'
 
 # The second task is dotnet pack command again pointing to the csproj file
 # The nobuild means the project will not be compiled before running pack, because its already built in above step
@@ -35,7 +35,7 @@ steps:
   inputs:
     command: 'pack'
     arguments: '--configuration $(buildConfiguration)'
-    packagesToPack: 'CommonLib/CommonLib.csproj'
+    packagesToPack: 'GeoUK/GeoUK.csproj'
     nobuild: true
     versioningScheme: 'off'
 
