@@ -42,7 +42,7 @@ namespace GeoUK
 		/// </summary>
 		/// <param name="coordinates">Cartesian Coordinates to be transformed.</param>
 		/// <returns></returns>
-		public static Cartesian Osgb36ToEtrs89(Cartesian coordinates)
+		public static Cartesian OSBB36ToEtrs89(Cartesian coordinates)
 		{
 			//(BUT CHANGE SIGNS OF EACH PARAMETER FOR REVERSE)
 			//tX (m)        tY (m)      tZ (m)      s (ppm)     rX (sec)        rY (sec)        rZ (sec)
