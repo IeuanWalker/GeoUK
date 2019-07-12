@@ -15,9 +15,9 @@ namespace GeoUK
         /// <param name="resourceFileName">Resource file name.</param>
         public static Stream GetEmbeddedResourceStream(Assembly assembly, string resourceFileName)
         {
-            var resourceNames = assembly.GetManifestResourceNames();
+            string[] resourceNames = assembly.GetManifestResourceNames();
 
-            var resourcePaths = resourceNames
+            string[] resourcePaths = resourceNames
                 .Where(x => x.EndsWith(resourceFileName, StringComparison.CurrentCultureIgnoreCase))
                 .ToArray();
 

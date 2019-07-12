@@ -67,8 +67,8 @@ namespace GeoUK.OSTN
                     throw new NotImplementedException();
             }
 
-            var data = new Dictionary<int, OstnDataRecord>();
-            using (var reader = new StreamReader(stream))
+            Dictionary<int, OstnDataRecord> data = new Dictionary<int, OstnDataRecord>();
+            using (StreamReader reader = new StreamReader(stream))
             {
                 // Skipping the header row
                 reader.ReadLine();
@@ -78,8 +78,8 @@ namespace GeoUK.OSTN
                 {
                     if (!String.IsNullOrWhiteSpace(line))
                     {
-                        var values = line.Split(',');
-                        var record = new OstnDataRecord
+                        string[] values = line.Split(',');
+                        OstnDataRecord record = new OstnDataRecord
                         {
                             Point_ID = Int32.Parse(values[0]),
                             ETRS89_Easting = Double.Parse(values[1]),
@@ -105,9 +105,9 @@ namespace GeoUK.OSTN
         /// <param name="resourceFileName">Resource file name.</param>
         private static Stream GetEmbeddedResourceStream(Assembly assembly, string resourceFileName)
         {
-            var resourceNames = assembly.GetManifestResourceNames();
+            string[] resourceNames = assembly.GetManifestResourceNames();
 
-            var resourcePaths = resourceNames
+            string[] resourcePaths = resourceNames
                 .Where(x => x.EndsWith(resourceFileName, StringComparison.CurrentCultureIgnoreCase))
                 .ToArray();
 

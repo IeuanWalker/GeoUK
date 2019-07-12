@@ -16,13 +16,13 @@ namespace GeoUK
         /// </summary>
         public static Osgb36 Etrs89ToOsgb(LatitudeLongitude coordinates)
         {
-            var enCoordinates = Convert.ToEastingNorthing(new Grs80(), new BritishNationalGrid(), coordinates);
+            EastingNorthing enCoordinates = Convert.ToEastingNorthing(new Grs80(), new BritishNationalGrid(), coordinates);
             return Etrs89ToOsgb(enCoordinates, coordinates.ElipsoidalHeight);
         }
 
         private static Osgb36 Etrs89ToOsgb(EastingNorthing coordinates, double ellipsoidHeight)
         {
-            var dataStream = GetEmbeddedOSTN02();
+            Stream dataStream = GetEmbeddedOSTN02();
 
             TextReader tr = new StreamReader(dataStream);
             List<int> recordNumbers = new List<int>();
@@ -63,36 +63,36 @@ namespace GeoUK
             string[] fields2 = records[2].Split(",".ToCharArray());
             string[] fields3 = records[3].Split(",".ToCharArray());
 
-            var se0 = System.Convert.ToDouble(fields0[3]);
-            var se1 = System.Convert.ToDouble(fields1[3]);
-            var se2 = System.Convert.ToDouble(fields2[3]);
-            var se3 = System.Convert.ToDouble(fields3[3]);
+            double se0 = System.Convert.ToDouble(fields0[3]);
+            double se1 = System.Convert.ToDouble(fields1[3]);
+            double se2 = System.Convert.ToDouble(fields2[3]);
+            double se3 = System.Convert.ToDouble(fields3[3]);
 
-            var sn0 = System.Convert.ToDouble(fields0[4]);
-            var sn1 = System.Convert.ToDouble(fields1[4]);
-            var sn2 = System.Convert.ToDouble(fields2[4]);
-            var sn3 = System.Convert.ToDouble(fields3[4]);
+            double sn0 = System.Convert.ToDouble(fields0[4]);
+            double sn1 = System.Convert.ToDouble(fields1[4]);
+            double sn2 = System.Convert.ToDouble(fields2[4]);
+            double sn3 = System.Convert.ToDouble(fields3[4]);
 
-            var sg0 = System.Convert.ToDouble(fields0[5]);
-            var sg1 = System.Convert.ToDouble(fields1[5]);
-            var sg2 = System.Convert.ToDouble(fields2[5]);
-            var sg3 = System.Convert.ToDouble(fields3[5]);
+            double sg0 = System.Convert.ToDouble(fields0[5]);
+            double sg1 = System.Convert.ToDouble(fields1[5]);
+            double sg2 = System.Convert.ToDouble(fields2[5]);
+            double sg3 = System.Convert.ToDouble(fields3[5]);
 
-            var dx = coordinates.Easting - x0;
-            var dy = coordinates.Northing - y0;
+            double dx = coordinates.Easting - x0;
+            double dy = coordinates.Northing - y0;
 
-            var t = dx / 1000.0;
-            var u = dy / 1000.0;
+            double t = dx / 1000.0;
+            double u = dy / 1000.0;
 
-            var se = (1 - t) * (1 - u) * se0 + t * (1 - u) * se1 + t * u * se2 + (1 - t) * u * se3;
-            var sn = (1 - t) * (1 - u) * sn0 + t * (1 - u) * sn1 + t * u * sn2 + (1 - t) * u * sn3;
-            var sg = (1 - t) * (1 - u) * sg0 + t * (1 - u) * sg1 + t * u * sg2 + (1 - t) * u * sg3;
+            double se = (1 - t) * (1 - u) * se0 + t * (1 - u) * se1 + t * u * se2 + (1 - t) * u * se3;
+            double sn = (1 - t) * (1 - u) * sn0 + t * (1 - u) * sn1 + t * u * sn2 + (1 - t) * u * sn3;
+            double sg = (1 - t) * (1 - u) * sg0 + t * (1 - u) * sg1 + t * u * sg2 + (1 - t) * u * sg3;
 
-            var geoidDatum = (Osgb36GeoidDatum)System.Convert.ToInt32(fields0[6]);
+            Osgb36GeoidDatum geoidDatum = (Osgb36GeoidDatum)System.Convert.ToInt32(fields0[6]);
 
-            var easting = coordinates.Easting + se;
-            var northing = coordinates.Northing + sn;
-            var height = ellipsoidHeight - sg;
+            double easting = coordinates.Easting + se;
+            double northing = coordinates.Northing + sn;
+            double height = ellipsoidHeight - sg;
 
             return new Osgb36(easting, northing, height, geoidDatum);
         }

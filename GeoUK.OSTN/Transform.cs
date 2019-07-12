@@ -23,17 +23,17 @@ namespace GeoUK.OSTN
         /// </summary>
         public static Osgb36 Etrs89ToOsgb(LatitudeLongitude coordinates, OstnVersionEnum ostnVersion = OstnVersionEnum.OSTN15)
         {
-            var enCoordinates = Convert.ToEastingNorthing(new Grs80(), new BritishNationalGrid(), coordinates);
+            EastingNorthing enCoordinates = Convert.ToEastingNorthing(new Grs80(), new BritishNationalGrid(), coordinates);
             return Etrs89ToOsgb(enCoordinates, coordinates.ElipsoidalHeight);
         }
 
         private static Osgb36 Etrs89ToOsgb(EastingNorthing coordinates, double ellipsoidHeight, OstnVersionEnum ostnVersion = OstnVersionEnum.OSTN15)
         {
-            var shifts = GetShifts(coordinates, ellipsoidHeight, ostnVersion);
+            Shifts shifts = GetShifts(coordinates, ellipsoidHeight, ostnVersion);
 
-            var easting = coordinates.Easting + shifts.Se;
-            var northing = coordinates.Northing + shifts.Sn;
-            var height = ellipsoidHeight - shifts.Sg;
+            double easting = coordinates.Easting + shifts.Se;
+            double northing = coordinates.Northing + shifts.Sn;
+            double height = ellipsoidHeight - shifts.Sg;
 
             return new Osgb36(easting, northing, height, shifts.GeoidDatum);
         }
@@ -49,14 +49,14 @@ namespace GeoUK.OSTN
             double errorE = double.MaxValue;
             EastingNorthing enCoordinates = null;
 
-            var shiftsA = GetShifts(coordinates, coordinates.Height, ostnVersion);
+            Shifts shiftsA = GetShifts(coordinates, coordinates.Height, ostnVersion);
 
             //0.0001 error meters
             int iter = 0;
             while ((errorN > 0.0001 || errorE > 0.0001) && iter < 10)
             {
                 enCoordinates = new EastingNorthing(coordinates.Easting - shiftsA.Se, coordinates.Northing - shiftsA.Sn);
-                var shiftsB = GetShifts(enCoordinates, coordinates.Height, ostnVersion);
+                Shifts shiftsB = GetShifts(enCoordinates, coordinates.Height, ostnVersion);
 
                 errorE = Math.Abs(shiftsA.Se - shiftsB.Se);
                 errorN = Math.Abs(shiftsA.Sn - shiftsB.Sn);
@@ -71,10 +71,10 @@ namespace GeoUK.OSTN
         private static Shifts GetShifts(EastingNorthing coordinates, double ellipsoidHeight, OstnVersionEnum ostnVersion)
         {
             //See OS Document: Transformations and OSGM02/OSGM15 user guide chapter 3
-            var ostnData = GetOstnData(ostnVersion);
+            Dictionary<int, OstnDataRecord> ostnData = GetOstnData(ostnVersion);
 
             List<int> recordNumbers = new List<int>();
-            var records = new OstnDataRecord[4];
+            OstnDataRecord[] records = new OstnDataRecord[4];
 
             //determine record numbers
             int eastIndex = (int)(coordinates.Easting / 1000.0);
@@ -96,28 +96,28 @@ namespace GeoUK.OSTN
             }
 
             //populate the properties
-            var se0 = System.Convert.ToDouble(records[0].ETRS89_OSGB36_EShift);
-            var se1 = System.Convert.ToDouble(records[1].ETRS89_OSGB36_EShift);
-            var se2 = System.Convert.ToDouble(records[2].ETRS89_OSGB36_EShift);
-            var se3 = System.Convert.ToDouble(records[3].ETRS89_OSGB36_EShift);
+            double se0 = System.Convert.ToDouble(records[0].ETRS89_OSGB36_EShift);
+            double se1 = System.Convert.ToDouble(records[1].ETRS89_OSGB36_EShift);
+            double se2 = System.Convert.ToDouble(records[2].ETRS89_OSGB36_EShift);
+            double se3 = System.Convert.ToDouble(records[3].ETRS89_OSGB36_EShift);
 
-            var sn0 = System.Convert.ToDouble(records[0].ETRS89_OSGB36_NShift);
-            var sn1 = System.Convert.ToDouble(records[1].ETRS89_OSGB36_NShift);
-            var sn2 = System.Convert.ToDouble(records[2].ETRS89_OSGB36_NShift);
-            var sn3 = System.Convert.ToDouble(records[3].ETRS89_OSGB36_NShift);
+            double sn0 = System.Convert.ToDouble(records[0].ETRS89_OSGB36_NShift);
+            double sn1 = System.Convert.ToDouble(records[1].ETRS89_OSGB36_NShift);
+            double sn2 = System.Convert.ToDouble(records[2].ETRS89_OSGB36_NShift);
+            double sn3 = System.Convert.ToDouble(records[3].ETRS89_OSGB36_NShift);
 
-            var sg0 = System.Convert.ToDouble(records[0].ETRS89_ODN_HeightShift);
-            var sg1 = System.Convert.ToDouble(records[1].ETRS89_ODN_HeightShift);
-            var sg2 = System.Convert.ToDouble(records[2].ETRS89_ODN_HeightShift);
-            var sg3 = System.Convert.ToDouble(records[3].ETRS89_ODN_HeightShift);
+            double sg0 = System.Convert.ToDouble(records[0].ETRS89_ODN_HeightShift);
+            double sg1 = System.Convert.ToDouble(records[1].ETRS89_ODN_HeightShift);
+            double sg2 = System.Convert.ToDouble(records[2].ETRS89_ODN_HeightShift);
+            double sg3 = System.Convert.ToDouble(records[3].ETRS89_ODN_HeightShift);
 
-            var dx = coordinates.Easting - x0;
-            var dy = coordinates.Northing - y0;
+            double dx = coordinates.Easting - x0;
+            double dy = coordinates.Northing - y0;
 
-            var t = dx / 1000.0;
-            var u = dy / 1000.0;
+            double t = dx / 1000.0;
+            double u = dy / 1000.0;
 
-            var shifts = new Shifts();
+            Shifts shifts = new Shifts();
 
             shifts.Se = (1 - t) * (1 - u) * se0 + t * (1 - u) * se1 + t * u * se2 + (1 - t) * u * se3;
             shifts.Sn = (1 - t) * (1 - u) * sn0 + t * (1 - u) * sn1 + t * u * sn2 + (1 - t) * u * sn3;
