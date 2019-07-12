@@ -1,15 +1,15 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace GeoUK.OSTN
 {
     internal static class ResourceManager
     {
         private static Dictionary<int, OstnDataRecord> _ostn02Data;
+
         public static Dictionary<int, OstnDataRecord> Ostn02Data
         {
             get
@@ -21,6 +21,7 @@ namespace GeoUK.OSTN
         }
 
         private static Dictionary<int, OstnDataRecord> _ostn15Data;
+
         public static Dictionary<int, OstnDataRecord> Ostn15Data
         {
             get
@@ -37,7 +38,7 @@ namespace GeoUK.OSTN
         /// <param name="ostnVersion">If not provided, it will load both OSTN02 and OSTN15 data.</param>
         public static void LoadResources(OstnVersionEnum? ostnVersion = null)
         {
-            if(!ostnVersion.HasValue || ostnVersion.Value == OstnVersionEnum.OSTN02)
+            if (!ostnVersion.HasValue || ostnVersion.Value == OstnVersionEnum.OSTN02)
                 _ostn02Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN02);
 
             if (!ostnVersion.HasValue || ostnVersion.Value == OstnVersionEnum.OSTN15)
@@ -57,9 +58,11 @@ namespace GeoUK.OSTN
                 case OstnVersionEnum.OSTN02:
                     stream = ResourceManager.GetEmbeddedResourceStream(typeof(Transform).GetTypeInfo().Assembly, "OSTN02_OSGM02_GB.txt");
                     break;
+
                 case OstnVersionEnum.OSTN15:
                     stream = ResourceManager.GetEmbeddedResourceStream(typeof(Transform).GetTypeInfo().Assembly, "OSTN15_OSGM15_DataFile.txt");
                     break;
+
                 default:
                     throw new NotImplementedException();
             }
@@ -100,23 +103,25 @@ namespace GeoUK.OSTN
         /// <returns>The embedded resource stream.</returns>
         /// <param name="assembly">Assembly.</param>
         /// <param name="resourceFileName">Resource file name.</param>
-        private static Stream GetEmbeddedResourceStream (Assembly assembly, string resourceFileName)
-		{
-			var resourceNames = assembly.GetManifestResourceNames ();
+        private static Stream GetEmbeddedResourceStream(Assembly assembly, string resourceFileName)
+        {
+            var resourceNames = assembly.GetManifestResourceNames();
 
-			var resourcePaths = resourceNames
-				.Where (x => x.EndsWith (resourceFileName, StringComparison.CurrentCultureIgnoreCase))
-				.ToArray ();
+            var resourcePaths = resourceNames
+                .Where(x => x.EndsWith(resourceFileName, StringComparison.CurrentCultureIgnoreCase))
+                .ToArray();
 
-			if (!resourcePaths.Any ()) {
-				throw new Exception (String.Format ("Resource ending with {0} not found.", resourceFileName));
-			}
+            if (!resourcePaths.Any())
+            {
+                throw new Exception(String.Format("Resource ending with {0} not found.", resourceFileName));
+            }
 
-			if (resourcePaths.Count () > 1) {
-				throw new Exception (String.Format ("Multiple resources ending with {0} found: {1}{2}", resourceFileName, Environment.NewLine, String.Join (Environment.NewLine, resourcePaths)));
-			}
+            if (resourcePaths.Count() > 1)
+            {
+                throw new Exception(String.Format("Multiple resources ending with {0} found: {1}{2}", resourceFileName, Environment.NewLine, String.Join(Environment.NewLine, resourcePaths)));
+            }
 
-			return assembly.GetManifestResourceStream (resourcePaths.Single ());
-		}
+            return assembly.GetManifestResourceStream(resourcePaths.Single());
+        }
     }
 }

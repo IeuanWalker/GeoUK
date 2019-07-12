@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace GeoUK.Coordinates
 {
     /// <summary>
@@ -25,6 +21,7 @@ namespace GeoUK.Coordinates
             _y = y;
             _z = z;
         }
+
         /// <summary>
         /// Returns the X axis parameter.
         /// </summary>
@@ -32,6 +29,7 @@ namespace GeoUK.Coordinates
         {
             get { return _x; }
         }
+
         /// <summary>
         /// Returns the Y axis parameter.
         /// </summary>
@@ -39,6 +37,7 @@ namespace GeoUK.Coordinates
         {
             get { return _y; }
         }
+
         /// <summary>
         /// Returns the Z axis parameter.
         /// </summary>
@@ -46,6 +45,5 @@ namespace GeoUK.Coordinates
         {
             get { return _z; }
         }
-
     }
 }

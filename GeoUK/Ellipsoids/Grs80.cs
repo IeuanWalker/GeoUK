@@ -1,5 +1,3 @@
-using System;
-
 namespace GeoUK.Ellipsoids
 {
     /// <summary>
@@ -9,6 +7,7 @@ namespace GeoUK.Ellipsoids
     {
         //WGS constants
         private const double C_SEMI_MAJOR_AXIS = 6378137;             //a
+
         private const double C_SEMI_MINOR_AXIS = 6356752.314;         //b
 
         /// <summary>
@@ -18,7 +17,5 @@ namespace GeoUK.Ellipsoids
             : base(C_SEMI_MAJOR_AXIS, C_SEMI_MINOR_AXIS)
         {
         }
-
     }
 }
-

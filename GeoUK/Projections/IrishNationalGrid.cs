@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace GeoUK.Projections
 {
     /// <summary>
@@ -9,11 +5,11 @@ namespace GeoUK.Projections
     /// </summary>
     public class IrishNationalGrid : Projection
     {
-		private const double SCALE_FACTOR = 1.000035;
-		private const double E = 200000;
-		private const double TO_LAT = 53.5;
+        private const double SCALE_FACTOR = 1.000035;
+        private const double E = 200000;
+        private const double TO_LAT = 53.5;
         private const double TO_LONG = -8;
-		private const double N_NH = 250000;
+        private const double N_NH = 250000;
 
         /// <summary>
         /// Constructor.

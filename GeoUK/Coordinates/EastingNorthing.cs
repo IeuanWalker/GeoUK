@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace GeoUK.Coordinates
 {
     /// <summary>
@@ -10,9 +6,10 @@ namespace GeoUK.Coordinates
     /// </summary>
     public class EastingNorthing
     {
-        double _easting;
-        double _northing;
-        double _height;
+        private double _easting;
+        private double _northing;
+        private double _height;
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -24,6 +21,7 @@ namespace GeoUK.Coordinates
             _northing = northing;
             _height = 0;
         }
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -36,6 +34,7 @@ namespace GeoUK.Coordinates
             _northing = northing;
             _height = height;
         }
+
         /// <summary>
         /// Retruns the easting parameter.
         /// </summary>
@@ -43,6 +42,7 @@ namespace GeoUK.Coordinates
         {
             get { return _easting; }
         }
+
         /// <summary>
         /// returns the northing parameter.
         /// </summary>
@@ -50,6 +50,7 @@ namespace GeoUK.Coordinates
         {
             get { return _northing; }
         }
+
         /// <summary>
         /// Returns the height parameter.
         /// </summary>

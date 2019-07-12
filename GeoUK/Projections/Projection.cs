@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Globalization;
 
 namespace GeoUK.Projections
@@ -15,7 +13,6 @@ namespace GeoUK.Projections
         private double _scaleFactor = 0.0;
         private double _trueOriginEasting = 0.0;
         private double _trueOriginNorthing = 0.0;
-
 
         /// <summary>
         /// Constructor.
@@ -36,6 +33,7 @@ namespace GeoUK.Projections
         {
             get { return _scaleFactor; }
         }
+
         /// <summary>
         /// Returns the Easting coordinate of the true origin.
         /// </summary>
@@ -43,6 +41,7 @@ namespace GeoUK.Projections
         {
             get { return _trueOriginEasting; }
         }
+
         /// <summary>
         /// Returns the Northing coordinate of the true origin.
         /// </summary>
@@ -50,13 +49,15 @@ namespace GeoUK.Projections
         {
             get { return _trueOriginNorthing; }
         }
+
         /// <summary>
         /// Returns the Latitude coordinate of the true origin for the southern hemisphere.
         /// </summary>
         public double TrueOriginLatitude
         {
-            get{ return _trueOriginLatitude; }
+            get { return _trueOriginLatitude; }
         }
+
         /// <summary>
         /// Returns the Longitude coordinate of the true origin for the southern hemisphere.
         /// </summary>
@@ -64,6 +65,7 @@ namespace GeoUK.Projections
         {
             get { return _trueOriginLongitude; }
         }
+
         //public static double DegreesToRadians(double degrees)
         //{
         //    return degrees * (Math.PI / 180);
@@ -109,8 +111,6 @@ namespace GeoUK.Projections
             }
 
             return dblResult;
-
         }
-
     }
 }

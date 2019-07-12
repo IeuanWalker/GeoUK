@@ -1,8 +1,5 @@
-using System;
-using System.Globalization;
 using GeoUK.Coordinates;
-using GeoUK.Ellipsoids;
-using GeoUK.Projections;
+using System;
 
 namespace GeoUK
 {
@@ -11,14 +8,13 @@ namespace GeoUK
     /// </summary>
     public static class Transform
     {
-
         /// <summary>
         /// Performs an ETRS89 to OSGB36 datum transformation. Accuracy is approximately 5 meters in all directions.
         /// For this method, ERTS89, ITRS2000 and WGS84 datums can be considered the same.
         /// </summary>
         /// <param name="coordinates">Cartesian Coordinates to be transformed.</param>
         /// <remarks>
-        /// This method uses a Helmert transformation to determine the OSGB36 coordinates. 
+        /// This method uses a Helmert transformation to determine the OSGB36 coordinates.
         /// Whilst only accurate to 5 meters in all directions, it is extremely fast.
         /// </remarks>
 		public static Cartesian Etrs89ToOsgb36(Cartesian coordinates)
@@ -37,9 +33,9 @@ namespace GeoUK
 
             Cartesian result = HelmertTransformation(coordinates, tx, ty, tz, rx, ry, rz, s);
 
-			return result;
-
+            return result;
         }
+
         /// <summary>
 		/// Performs an OSGB36 to ETRS89 datum transformation. Accuracy is approximately 5 meters in all directions.
 		/// For this method, ERTS89, ITRS2000 and WGS84 datums can be considered the same.
@@ -56,22 +52,21 @@ namespace GeoUK
             double ty = -125.157;
             double tz = 542.060;
             double s = -20.4894;
-			double rx = ToRadians(ToDecimelDegrees(0, 0, 0.1502));
+            double rx = ToRadians(ToDecimelDegrees(0, 0, 0.1502));
             double ry = ToRadians(ToDecimelDegrees(0, 0, 0.247));
             double rz = ToRadians(ToDecimelDegrees(0, 0, 0.8421));
 
             return HelmertTransformation(coordinates, tx, ty, tz, rx, ry, rz, s);
+        }
 
-        }        
-		/*
+        /*
 		 *  //(BUT CHANGE SIGNS OF EACH PARAMETER FOR REVERSE)
 			tX (m)   tY (m)   tZ (m)   s (ppm)  rX (sec) rY (sec) rZ (sec)
 			-446.448 +125.157 -542.060 +20.4894 -0.1502  -0.2470  -0.8421
 
-
 		 */
 
-		/// <summary>
+        /// <summary>
         /// Performs an ETRS89 to ITRS2000 datum transformation.
         /// </summary>
         /// <param name="coordinates">Cartesian Coordinates to be transformed.</param>
@@ -95,21 +90,21 @@ namespace GeoUK
             double rz = Negate(ToRadians(ToDecimelDegrees(0, 0, -0.000792) * dt));
 
             return HelmertTransformation(coordinates, tx, ty, tz, rx, ry, rz, s);
-
         }
+
         /// <summary>
         /// Performs an ITRS2000 to ETRS89 datum transformation.
         /// </summary>
         /// <param name="coordinates">Cartesian Coordinates to be transformed.</param>
         /// <param name="epochYear">Refers to the year the data specified in coordinates was gathered.</param>
         /// <returns></returns>
-        public static Cartesian Itrs2000ToEtrs89(Cartesian coordinates, int epochYear )
+        public static Cartesian Itrs2000ToEtrs89(Cartesian coordinates, int epochYear)
         {
             //tX (m)        tY (m)      tZ (m)      s (ppm)     rX (sec)        rY (sec)        rZ (sec)
             //0.054         0.051      - 0.048      0           0.000081 dt     0.00049 dt     - 0.000792 dt
 
-             //dt represents shift in years since time of survey to when ETRS89 was determined
-            
+            //dt represents shift in years since time of survey to when ETRS89 was determined
+
             int dt = epochYear - 1989;
             //set up the parameters
             double tx = 0.054;
@@ -121,8 +116,8 @@ namespace GeoUK
             double rz = ToRadians(ToDecimelDegrees(0, 0, -0.000792) * dt);
 
             return HelmertTransformation(coordinates, tx, ty, tz, rx, ry, rz, s);
-
         }
+
         /// <summary>
         /// Performs an ITRS94/96/97 to ETRS89 datum transformation.
         /// </summary>
@@ -149,6 +144,7 @@ namespace GeoUK
 
             return HelmertTransformation(coordinates, tx, ty, tz, rx, ry, rz, s);
         }
+
         /// <summary>
         /// Performs an ETRS89 to ITRS94/96/97 datum transformation.
         /// </summary>
@@ -175,25 +171,30 @@ namespace GeoUK
 
             return HelmertTransformation(coordinates, tx, ty, tz, rx, ry, rz, s);
         }
-		private static double ToDecimelDegrees(int degrees, int minutes, double seconds)
+
+        private static double ToDecimelDegrees(int degrees, int minutes, double seconds)
         {
             //determine seconds as minutes
             double m = minutes + (seconds / 60.0);
             return ToDecimelDegrees(degrees, m);
         }
-		private static double ToDecimelDegrees(int degrees, double minutes)
+
+        private static double ToDecimelDegrees(int degrees, double minutes)
         {
             //determine minutes as derees
             return degrees + (minutes / 60.0);
         }
-		private static double ToRadians(double degrees)
+
+        private static double ToRadians(double degrees)
         {
             return degrees * (Math.PI / 180.0);
         }
-		private static double ToDegrees(double radians)
+
+        private static double ToDegrees(double radians)
         {
             return radians * (180.0 / Math.PI);
         }
+
         /// <summary>
         /// This seven parameter method can be used to transform coordinates between datums.
         /// </summary>
@@ -262,6 +263,7 @@ namespace GeoUK
             //adding to T whilst creating the cartesian coordinates
             return new Cartesian(T[0] + temp[0], T[1] + temp[1], T[2] + temp[2]);
         }
+
         /// <summary>
         /// Helper funtion to reverse the sign of a value. Helps code to be more readable.
         /// </summary>

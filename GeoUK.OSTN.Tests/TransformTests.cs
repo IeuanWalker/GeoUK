@@ -1,11 +1,8 @@
-﻿using System;
+﻿using GeoUK.Coordinates;
+using GeoUK.OSTN.Tests.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GeoUK.Coordinates;
-using GeoUK.OSTN.Tests.Models;
 using Xunit;
 
 namespace GeoUK.OSTN.Tests
@@ -87,7 +84,7 @@ namespace GeoUK.OSTN.Tests
 
             var inputData = new List<DataPoint>();
             var outputData = new Dictionary<string, DataPoint>();
-            
+
             using (var inputFile = new StreamReader(inputFileName))
             {
                 string line;

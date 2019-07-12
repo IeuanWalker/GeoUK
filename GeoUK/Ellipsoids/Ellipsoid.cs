@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeoUK.Ellipsoids
 {
@@ -9,12 +7,11 @@ namespace GeoUK.Ellipsoids
     /// </summary>
     public class Ellipsoid
     {
-
         private double _semiMajorAxis = 0.0;
         private double _semiMinorAxis = 0.0;
         private double _eccentricity = 0.0;
         private double _eccentricitySquared = 0.0;
-        
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,6 +24,7 @@ namespace GeoUK.Ellipsoids
             _eccentricitySquared = (Math.Pow(semiMajorAxis, 2) - Math.Pow(semiMinorAxis, 2)) / Math.Pow(semiMajorAxis, 2);
             _eccentricity = Math.Sqrt(_eccentricitySquared);
         }
+
         /// <summary>
         /// Calculates the Radius of curvature for a given latitude.
         /// </summary>
@@ -43,6 +41,7 @@ namespace GeoUK.Ellipsoids
             //return (C_SEMI_MAJOR_AXIS / Math.Pow((1 - m_EccentricitySquared * Math.Pow(Math.Sin(dblRadians),2)), 0.5));
             return _semiMajorAxis / Math.Pow((1 - _eccentricitySquared * Math.Pow(Math.Sin(dblRadians), 2)), 0.5);
         }
+
         /// <summary>
         /// Returns the semi-major axis of the ellipsoid.
         /// </summary>
@@ -53,6 +52,7 @@ namespace GeoUK.Ellipsoids
                 return _semiMajorAxis;
             }
         }
+
         /// <summary>
         /// Returns the semi-major axis of the ellipsoid.
         /// </summary>
@@ -63,6 +63,7 @@ namespace GeoUK.Ellipsoids
                 return _semiMinorAxis;
             }
         }
+
         /// <summary>
         /// returns the eccentricity of the ellipsoid.
         /// </summary>
@@ -73,6 +74,7 @@ namespace GeoUK.Ellipsoids
                 return _eccentricity;
             }
         }
+
         /// <summary>
         /// returns the eccentricity squared of the ellipsoid.
         /// </summary>
@@ -83,6 +85,7 @@ namespace GeoUK.Ellipsoids
                 return _eccentricitySquared;
             }
         }
+
         /// <summary>
         /// returns the second eccentricity squared of the ellipsoid.
         /// </summary>
@@ -93,6 +96,7 @@ namespace GeoUK.Ellipsoids
                 return (Math.Pow(_semiMajorAxis, 2) - Math.Pow(_semiMinorAxis, 2)) / Math.Pow(_semiMinorAxis, 2);
             }
         }
+
         /// <summary>
         /// Returns radians for a given value of degrees.
         /// </summary>
@@ -102,6 +106,7 @@ namespace GeoUK.Ellipsoids
         {
             return degrees * (Math.PI / 180);
         }
+
         /// <summary>
         /// Returns degrees for a given value of radians.
         /// </summary>
