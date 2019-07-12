@@ -72,7 +72,7 @@ namespace GeoUK.Coordinates
 				10km (2-figure) Grid Reference: SO84 = 380000 Easting 240000 Northing
 				1km (4-figure) Grid Reference: NS2468 = 224000 Easting 668000 Northing
 				100m (6-figure) Grid Reference: TL123456 = 512300 Easting 245600 Northing
-			    */
+				*/
 				double easting = Easting;
 				double northing = Northing;
 
@@ -110,27 +110,26 @@ namespace GeoUK.Coordinates
 			string result = string.Empty;
 
 			//test for our upper and lower limits
-			if (easting >= 0 && easting < 700000 && northing >= 0 && northing < 1300000)
-			{
-				char[] firstChar = new char[6] { 'S', 'N', 'H', 'T', 'O', 'J' };
-				char[] secondChar = new char[25] { 'V', 'Q', 'L', 'F', 'A', 'W', 'R', 'M', 'G', 'B', 'X', 'S', 'N', 'H', 'C', 'Y', 'T', 'O', 'J', 'D', 'Z', 'U', 'P', 'K', 'E' };
+			if (!(easting >= 0) || !(easting < 700000) || !(northing >= 0) || !(northing < 1300000)) return result;
 
-				//calculate the first letter
-				int indexNorthing = (int)Math.Floor(northing / 500000);
-				int indexEasting = (int)Math.Floor(easting / 500000);
+			char[] firstChar = { 'S', 'N', 'H', 'T', 'O', 'J' };
+			char[] secondChar = { 'V', 'Q', 'L', 'F', 'A', 'W', 'R', 'M', 'G', 'B', 'X', 'S', 'N', 'H', 'C', 'Y', 'T', 'O', 'J', 'D', 'Z', 'U', 'P', 'K', 'E' };
 
-				//get the first char
-				char chr1 = firstChar[(indexEasting * 3) + indexNorthing];
+			//calculate the first letter
+			int indexNorthing = (int)Math.Floor(northing / 500000);
+			int indexEasting = (int)Math.Floor(easting / 500000);
 
-				//to get the second letter we subtract the number of 500km sectors calculated above
-				indexNorthing = (int)Math.Floor((northing - (indexNorthing * 500000)) / 100000);
-				indexEasting = (int)Math.Floor((easting - (indexEasting * 500000)) / 100000);
+			//get the first char
+			char chr1 = firstChar[(indexEasting * 3) + indexNorthing];
 
-				//get the second char
-				char chr2 = secondChar[(indexEasting * 5) + indexNorthing];
+			//to get the second letter we subtract the number of 500km sectors calculated above
+			indexNorthing = (int)Math.Floor((northing - (indexNorthing * 500000)) / 100000);
+			indexEasting = (int)Math.Floor((easting - (indexEasting * 500000)) / 100000);
 
-				result = $"{chr1}{chr2}";
-			}
+			//get the second char
+			char chr2 = secondChar[(indexEasting * 5) + indexNorthing];
+
+			result = $"{chr1}{chr2}";
 			return result;
 		}
 	}

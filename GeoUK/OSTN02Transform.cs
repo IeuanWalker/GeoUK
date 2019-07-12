@@ -48,7 +48,7 @@ namespace GeoUK
                 string csvRecord = tr.ReadLine();
                 for (int index = 0; index < 4; index++)
                 {
-                    if (!csvRecord.StartsWith(recordNumbers[index].ToString().Trim() + ",", StringComparison.Ordinal))
+                    if (csvRecord != null && !csvRecord.StartsWith(recordNumbers[index].ToString().Trim() + ",", StringComparison.Ordinal))
                         continue;
 
                     //don't use add as we need to keep these in same order as record numbers

@@ -184,8 +184,6 @@ namespace GeoUK
 
 		private static double ToRadians(double degrees) => degrees * (Math.PI / 180.0);
 
-		private static double ToDegrees(double radians) => radians * (180.0 / Math.PI);
-
 		/// <summary>
 		/// This seven parameter method can be used to transform coordinates between datums.
 		/// </summary>

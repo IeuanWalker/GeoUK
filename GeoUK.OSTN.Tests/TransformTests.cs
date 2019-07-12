@@ -125,7 +125,7 @@ namespace GeoUK.OSTN.Tests
 
             foreach (DataPoint dataPoint in inputData)
             {
-                LatitudeLongitude transformation = Transform.OsgbToEtrs89(new Osgb36(dataPoint.X, dataPoint.Y), OstnVersionEnum.OSTN15);
+                LatitudeLongitude transformation = Transform.OsgbToEtrs89(new Osgb36(dataPoint.X, dataPoint.Y));
 
                 // Comparing values with a precision of 3 decimals, as they are given in the output file.
                 bool latitudesEqual = outputData[dataPoint.PointID].X

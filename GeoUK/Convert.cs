@@ -2,7 +2,6 @@ using GeoUK.Coordinates;
 using GeoUK.Ellipsoids;
 using GeoUK.Projections;
 using System;
-using System.Globalization;
 
 namespace GeoUK
 {
@@ -282,38 +281,5 @@ namespace GeoUK
 		/// <param name="minutes"></param>
 		/// <returns></returns>
 		public static double ToDecimalDegrees(int degrees, double minutes) => degrees + (minutes / 60.0);
-
-		private static double Div(double value, double divisor)
-		{
-			//make the division
-			double dblResult = value / divisor;
-
-			//do all calculations on positive numbers
-			bool blnNegative = false;
-			if (dblResult < 0)
-			{
-				blnNegative = true;
-				dblResult *= -1;
-			}
-
-			//see if there is any remainder
-			dblResult = dblResult % 1 > 0
-				? Math.Ceiling(dblResult) - 1
-				: System.Convert.ToInt32(dblResult, CultureInfo.InvariantCulture);
-
-			if (blnNegative)
-			{
-				dblResult = Negate(dblResult);
-			}
-
-			return dblResult;
-		}
-
-		/// <summary>
-		/// Helper function to reverse the sign of a value. Helps code to be more readable.
-		/// </summary>
-		/// <param name="value"></param>
-		/// <returns></returns>
-		private static double Negate(double value) => value * -1.0;
 	}
 }

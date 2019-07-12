@@ -26,7 +26,7 @@ namespace GeoUK.OSTN
 
 		private static Osgb36 Etrs89ToOsgb(EastingNorthing coordinates, double ellipsoidHeight, OstnVersionEnum ostnVersion = OstnVersionEnum.OSTN15)
 		{
-			Shifts shifts = GetShifts(coordinates, ellipsoidHeight, ostnVersion);
+			Shifts shifts = GetShifts(coordinates, ostnVersion);
 
 			double easting = coordinates.Easting + shifts.Se;
 			double northing = coordinates.Northing + shifts.Sn;
@@ -46,14 +46,14 @@ namespace GeoUK.OSTN
 			double errorE = double.MaxValue;
 			EastingNorthing enCoordinates = null;
 
-			Shifts shiftsA = GetShifts(coordinates, coordinates.Height, ostnVersion);
+			Shifts shiftsA = GetShifts(coordinates, ostnVersion);
 
 			//0.0001 error meters
 			int iter = 0;
 			while ((errorN > 0.0001 || errorE > 0.0001) && iter < 10)
 			{
 				enCoordinates = new EastingNorthing(coordinates.Easting - shiftsA.Se, coordinates.Northing - shiftsA.Sn);
-				Shifts shiftsB = GetShifts(enCoordinates, coordinates.Height, ostnVersion);
+				Shifts shiftsB = GetShifts(enCoordinates, ostnVersion);
 
 				errorE = Math.Abs(shiftsA.Se - shiftsB.Se);
 				errorN = Math.Abs(shiftsA.Sn - shiftsB.Sn);
@@ -65,7 +65,7 @@ namespace GeoUK.OSTN
 			return Convert.ToLatitudeLongitude(new Wgs84(), new BritishNationalGrid(), enCoordinates);
 		}
 
-		private static Shifts GetShifts(EastingNorthing coordinates, double ellipsoidHeight, OstnVersionEnum ostnVersion)
+		private static Shifts GetShifts(EastingNorthing coordinates, OstnVersionEnum ostnVersion)
 		{
 			//See OS Document: Transformations and OSGM02/OSGM15 user guide chapter 3
 			Dictionary<int, OstnDataRecord> ostnData = GetOstnData(ostnVersion);
