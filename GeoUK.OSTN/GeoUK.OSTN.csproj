@@ -17,7 +17,13 @@
   <ItemGroup>
     <ProjectReference Include="..\GeoUK\GeoUK.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Authors>Ieuan Walker</Authors>
+    <Company>Ieuan Walker</Company>
+    <Copyright>Ieuan Walker</Copyright>
+    <Description>Geodetic transformations for UK based coordinate systems.</Description>
   </PropertyGroup>
 </Project>
