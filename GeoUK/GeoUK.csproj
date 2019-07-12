@@ -12,6 +12,6 @@
     <RepositoryUrl>https://github.com/IeuanWalker/GeoUK</RepositoryUrl>
     <PackageTags>Geodetic, Geo, WGS84, BNG, OS, coordinate, OSGB36</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseExpression>LGPL3.0</PackageLicenseExpression>
   </PropertyGroup>
 </Project>
