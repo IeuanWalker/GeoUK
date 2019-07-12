@@ -23,12 +23,12 @@ namespace GeoUK
 
             if (!resourcePaths.Any())
             {
-                throw new Exception(string.Format("Resource ending with {0} not found.", resourceFileName));
+                throw new Exception($"Resource ending with {resourceFileName} not found.");
             }
 
-            if (resourcePaths.Count() > 1)
+            if (resourcePaths.Length > 1)
             {
-                throw new Exception(string.Format("Multiple resources ending with {0} found: {1}{2}", resourceFileName, Environment.NewLine, string.Join(Environment.NewLine, resourcePaths)));
+                throw new Exception($"Multiple resources ending with {resourceFileName} found: {Environment.NewLine}{string.Join(Environment.NewLine, resourcePaths)}");
             }
 
             return assembly.GetManifestResourceStream(resourcePaths.Single());

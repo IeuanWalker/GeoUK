@@ -8,72 +8,40 @@ namespace GeoUK.Projections
     /// </summary>
     public class Projection
     {
-        private double _trueOriginLatitude = 0.0;
-        private double _trueOriginLongitude = 0.0;
-        private double _scaleFactor = 0.0;
-        private double _trueOriginEasting = 0.0;
-        private double _trueOriginNorthing = 0.0;
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         public Projection(double scaleFactor, double trueOriginEasting, double trueOriginNorthing, double trueOriginLatitude, double trueOriginLongitude)
         {
-            _scaleFactor = scaleFactor;
-            _trueOriginEasting = trueOriginEasting;
-            _trueOriginNorthing = trueOriginNorthing;
-            _trueOriginLatitude = trueOriginLatitude;
-            _trueOriginLongitude = trueOriginLongitude;
+            ScaleFactor = scaleFactor;
+            TrueOriginEasting = trueOriginEasting;
+            TrueOriginNorthing = trueOriginNorthing;
+            TrueOriginLatitude = trueOriginLatitude;
+            TrueOriginLongitude = trueOriginLongitude;
         }
 
         /// <summary>
         /// Returns the scale factor.
         /// </summary>
-        public double ScaleFactor
-        {
-            get { return _scaleFactor; }
-        }
+        public double ScaleFactor { get; }
 
         /// <summary>
         /// Returns the Easting coordinate of the true origin.
         /// </summary>
-        public double TrueOriginEasting
-        {
-            get { return _trueOriginEasting; }
-        }
+        public double TrueOriginEasting { get; }
 
         /// <summary>
         /// Returns the Northing coordinate of the true origin.
         /// </summary>
-        public double TrueOriginNorthing
-        {
-            get { return _trueOriginNorthing; }
-        }
+        public double TrueOriginNorthing { get; }
 
         /// <summary>
         /// Returns the Latitude coordinate of the true origin for the southern hemisphere.
         /// </summary>
-        public double TrueOriginLatitude
-        {
-            get { return _trueOriginLatitude; }
-        }
+        public double TrueOriginLatitude { get; }
 
         /// <summary>
         /// Returns the Longitude coordinate of the true origin for the southern hemisphere.
         /// </summary>
-        public double TrueOriginLongitude
-        {
-            get { return _trueOriginLongitude; }
-        }
+        public double TrueOriginLongitude { get; }
 
-        //public static double DegreesToRadians(double degrees)
-        //{
-        //    return degrees * (Math.PI / 180);
-        //}
-        //public static double RadiansToDegrees(double radians)
-        //{
-        //    return radians * (180 / Math.PI);
-        //}
         /// <summary>
         /// Returns the integer portion of a division operation.
         /// </summary>
@@ -82,32 +50,25 @@ namespace GeoUK.Projections
         /// <returns></returns>
         protected static double Div(double value, double divisor)
         {
-            double dblResult = 0;
-            bool blnNegative = false;
-
             //make the division
-            dblResult = value / divisor;
+            double dblResult = value / divisor;
 
             //do all calculations on positive numbers
+            bool blnNegative = false;
             if (dblResult < 0)
             {
                 blnNegative = true;
-                dblResult = dblResult * -1;
+                dblResult *= -1;
             }
 
             //see if there is any remainder
-            if (dblResult % 1 > 0)
-            {
-                dblResult = Math.Ceiling(dblResult) - 1;
-            }
-            else
-            {
-                dblResult = System.Convert.ToInt32(dblResult, CultureInfo.InvariantCulture);
-            }
+            dblResult = dblResult % 1 > 0
+                ? Math.Ceiling(dblResult) - 1
+                : System.Convert.ToInt32(dblResult, CultureInfo.InvariantCulture);
 
             if (blnNegative)
             {
-                dblResult = dblResult * -1.0;
+                dblResult *= -1.0;
             }
 
             return dblResult;

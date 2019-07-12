@@ -10,27 +10,11 @@ namespace GeoUK.OSTN
     {
         private static Dictionary<int, OstnDataRecord> _ostn02Data;
 
-        public static Dictionary<int, OstnDataRecord> Ostn02Data
-        {
-            get
-            {
-                if (_ostn02Data == null)
-                    _ostn02Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN02);
-                return _ostn02Data;
-            }
-        }
+        public static Dictionary<int, OstnDataRecord> Ostn02Data => _ostn02Data ?? (_ostn02Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN02));
 
         private static Dictionary<int, OstnDataRecord> _ostn15Data;
 
-        public static Dictionary<int, OstnDataRecord> Ostn15Data
-        {
-            get
-            {
-                if (_ostn15Data == null)
-                    _ostn15Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN15);
-                return _ostn15Data;
-            }
-        }
+        public static Dictionary<int, OstnDataRecord> Ostn15Data => _ostn15Data ?? (_ostn15Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN15));
 
         /// <summary>
         /// Loads the OSTN data into memory.
@@ -56,11 +40,11 @@ namespace GeoUK.OSTN
             switch (ostnVersion)
             {
                 case OstnVersionEnum.OSTN02:
-                    stream = ResourceManager.GetEmbeddedResourceStream(typeof(Transform).GetTypeInfo().Assembly, "OSTN02_OSGM02_GB.txt");
+                    stream = GetEmbeddedResourceStream(typeof(Transform).GetTypeInfo().Assembly, "OSTN02_OSGM02_GB.txt");
                     break;
 
                 case OstnVersionEnum.OSTN15:
-                    stream = ResourceManager.GetEmbeddedResourceStream(typeof(Transform).GetTypeInfo().Assembly, "OSTN15_OSGM15_DataFile.txt");
+                    stream = GetEmbeddedResourceStream(typeof(Transform).GetTypeInfo().Assembly, "OSTN15_OSGM15_DataFile.txt");
                     break;
 
                 default:
@@ -76,21 +60,20 @@ namespace GeoUK.OSTN
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (!String.IsNullOrWhiteSpace(line))
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+
+                    string[] values = line.Split(',');
+                    OstnDataRecord record = new OstnDataRecord
                     {
-                        string[] values = line.Split(',');
-                        OstnDataRecord record = new OstnDataRecord
-                        {
-                            Point_ID = Int32.Parse(values[0]),
-                            ETRS89_Easting = Double.Parse(values[1]),
-                            ETRS89_Northing = Double.Parse(values[2]),
-                            ETRS89_OSGB36_EShift = Double.Parse(values[3]),
-                            ETRS89_OSGB36_NShift = Double.Parse(values[4]),
-                            ETRS89_ODN_HeightShift = Double.Parse(values[5]),
-                            Height_Datum_Flag = Double.Parse(values[6]),
-                        };
-                        data[record.Point_ID] = record;
-                    }
+                        Point_ID = int.Parse(values[0]),
+                        ETRS89_Easting = double.Parse(values[1]),
+                        ETRS89_Northing = double.Parse(values[2]),
+                        ETRS89_OSGB36_EShift = double.Parse(values[3]),
+                        ETRS89_OSGB36_NShift = double.Parse(values[4]),
+                        ETRS89_ODN_HeightShift = double.Parse(values[5]),
+                        Height_Datum_Flag = double.Parse(values[6]),
+                    };
+                    data[record.Point_ID] = record;
                 }
             }
 
@@ -113,12 +96,12 @@ namespace GeoUK.OSTN
 
             if (!resourcePaths.Any())
             {
-                throw new Exception(String.Format("Resource ending with {0} not found.", resourceFileName));
+                throw new Exception($"Resource ending with {resourceFileName} not found.");
             }
 
-            if (resourcePaths.Count() > 1)
+            if (resourcePaths.Length > 1)
             {
-                throw new Exception(String.Format("Multiple resources ending with {0} found: {1}{2}", resourceFileName, Environment.NewLine, String.Join(Environment.NewLine, resourcePaths)));
+                throw new Exception($"Multiple resources ending with {resourceFileName} found: {Environment.NewLine}{string.Join(Environment.NewLine, resourcePaths)}");
             }
 
             return assembly.GetManifestResourceStream(resourcePaths.Single());

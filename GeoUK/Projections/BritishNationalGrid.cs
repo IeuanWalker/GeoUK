@@ -1,7 +1,7 @@
 namespace GeoUK.Projections
 {
     /// <summary>
-    /// This immutable class, derived from Projection, represents the British National Grid projection and is provided for convienience.
+    /// This immutable class, derived from Projection, represents the British National Grid projection and is provided for convenience.
     /// </summary>
     public class BritishNationalGrid : Projection
     {
@@ -11,9 +11,6 @@ namespace GeoUK.Projections
         private const double TO_LONG = -2;
         private const double N_NH = -100000;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         public BritishNationalGrid()
             : base(SCALE_FACTOR, E, N_NH, TO_LAT, TO_LONG)
         {

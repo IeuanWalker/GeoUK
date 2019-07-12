@@ -6,9 +6,6 @@ namespace GeoUK.Coordinates
     /// </summary>
     public class EastingNorthing
     {
-        private double _easting;
-        private double _northing;
-        private double _height;
 
         /// <summary>
         /// Constructor.
@@ -17,9 +14,9 @@ namespace GeoUK.Coordinates
         /// <param name="northing"></param>
         public EastingNorthing(double easting, double northing)
         {
-            _easting = easting;
-            _northing = northing;
-            _height = 0;
+            Easting = easting;
+            Northing = northing;
+            Height = 0;
         }
 
         /// <summary>
@@ -30,33 +27,24 @@ namespace GeoUK.Coordinates
         /// <param name="height"></param>
         public EastingNorthing(double easting, double northing, double height)
         {
-            _easting = easting;
-            _northing = northing;
-            _height = height;
+            Easting = easting;
+            Northing = northing;
+            Height = height;
         }
 
         /// <summary>
-        /// Retruns the easting parameter.
+        /// Returns the easting parameter.
         /// </summary>
-        public double Easting
-        {
-            get { return _easting; }
-        }
+        public double Easting { get; }
 
         /// <summary>
         /// returns the northing parameter.
         /// </summary>
-        public double Northing
-        {
-            get { return _northing; }
-        }
+        public double Northing { get; }
 
         /// <summary>
         /// Returns the height parameter.
         /// </summary>
-        public double Height
-        {
-            get { return _height; }
-        }
+        public double Height { get; }
     }
 }

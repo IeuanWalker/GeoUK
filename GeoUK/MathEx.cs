@@ -4,10 +4,7 @@ namespace GeoUK
 {
     public static class MathEx
     {
-        public static double Secant(double x)
-        {
-            return 1 / Math.Cos(x);
-        }
+        public static double Secant(double x) => 1 / Math.Cos(x);
 
         //			Cosecant Cosec(X) = 1 / Sin(X)
         //			Cotangent Cotan(X) = 1 / Tan(X)

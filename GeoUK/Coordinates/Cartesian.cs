@@ -5,9 +5,6 @@ namespace GeoUK.Coordinates
     /// </summary>
     public class Cartesian
     {
-        private double _x;
-        private double _z;
-        private double _y;
 
         /// <summary>
         /// Constructor.
@@ -17,33 +14,24 @@ namespace GeoUK.Coordinates
         /// <param name="z"></param>
         public Cartesian(double x, double y, double z)
         {
-            _x = x;
-            _y = y;
-            _z = z;
+            X = x;
+            Y = y;
+            Z = z;
         }
 
         /// <summary>
         /// Returns the X axis parameter.
         /// </summary>
-        public double X
-        {
-            get { return _x; }
-        }
+        public double X { get; }
 
         /// <summary>
         /// Returns the Y axis parameter.
         /// </summary>
-        public double Y
-        {
-            get { return _y; }
-        }
+        public double Y { get; }
 
         /// <summary>
         /// Returns the Z axis parameter.
         /// </summary>
-        public double Z
-        {
-            get { return _z; }
-        }
+        public double Z { get; }
     }
 }

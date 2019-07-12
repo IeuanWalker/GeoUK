@@ -17,7 +17,7 @@ namespace GeoUK
         public static Osgb36 Etrs89ToOsgb(LatitudeLongitude coordinates)
         {
             EastingNorthing enCoordinates = Convert.ToEastingNorthing(new Grs80(), new BritishNationalGrid(), coordinates);
-            return Etrs89ToOsgb(enCoordinates, coordinates.ElipsoidalHeight);
+            return Etrs89ToOsgb(enCoordinates, coordinates.EllipsoidalHeight);
         }
 
         private static Osgb36 Etrs89ToOsgb(EastingNorthing coordinates, double ellipsoidHeight)
@@ -48,12 +48,12 @@ namespace GeoUK
                 string csvRecord = tr.ReadLine();
                 for (int index = 0; index < 4; index++)
                 {
-                    if (csvRecord.StartsWith(recordNumbers[index].ToString().Trim() + ",", StringComparison.Ordinal))
-                    {
-                        //dont use add as we need to keep these in same order as record numbers
-                        records[index] = csvRecord;
-                        recordsFound++;
-                    }
+                    if (!csvRecord.StartsWith(recordNumbers[index].ToString().Trim() + ",", StringComparison.Ordinal))
+                        continue;
+
+                    //don't use add as we need to keep these in same order as record numbers
+                    records[index] = csvRecord;
+                    recordsFound++;
                 }
             }
 
@@ -103,14 +103,8 @@ namespace GeoUK
         /// <param name="eastIndex"></param>
         /// <param name="northIndex"></param>
         /// <returns></returns>
-        private static int CalculateRecordNumber(int eastIndex, int northIndex)
-        {
-            return eastIndex + (northIndex * 701) + 1;
-        }
+        private static int CalculateRecordNumber(int eastIndex, int northIndex) => eastIndex + (northIndex * 701) + 1;
 
-        private static Stream GetEmbeddedOSTN02()
-        {
-            return ResourceManager.GetEmbeddedResourceStream(typeof(OSTN02Transform).GetTypeInfo().Assembly, "OSTN02_OSGM02_GB.txt");
-        }
+        private static Stream GetEmbeddedOSTN02() => ResourceManager.GetEmbeddedResourceStream(typeof(OSTN02Transform).GetTypeInfo().Assembly, "OSTN02_OSGM02_GB.txt");
     }
 }
