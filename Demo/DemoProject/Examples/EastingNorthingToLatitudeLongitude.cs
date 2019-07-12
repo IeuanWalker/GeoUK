@@ -23,9 +23,7 @@ namespace DemoProject.Examples
             // Convert to Cartesian
             Cartesian cartesian = Convert.ToCartesian(new Airy1830(),
                 new BritishNationalGrid(),
-                new EastingNorthing(
-                    easting,
-                    northing));
+                new EastingNorthing(easting, northing));
 
             Cartesian wgsCartesian = Transform.OSBB36ToEtrs89(cartesian); //ETRS89 is effectively WGS84
 
