@@ -33,23 +33,25 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
   inputs:
-    command: 'pack'
+    command: pack
     arguments: '--configuration $(buildConfiguration)'
     packagesToPack: 'GeoUK/GeoUK.csproj'
-    nobuild: true
-    versioningScheme: 'off'
+    majorVersion: '$(Major)'
+    minorVersion: '$(Minor)'
+    patchVersion: '$(Patch)'
 
 # The last task is a nuget command, nuget push
 # This will push any .nupkg files to the 'TestFeed' artifact feed
 # allowPackageConflicts allows us to build the same version and not throw an error when trying to push
 # instead it just ingores the latest package unless the version changes
 - task: NuGetCommand@2
-  displayName: 'nuget push'
+  displayName: 'NuGet push'
   inputs:
-    command: 'push'
-    feedsToUse: 'select'
+    command: push
+    publishVstsFeed: 'TestFeed'
+    allowPackageConflicts: true
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'TestFeed'
-    versioningScheme: 'off'
-    allowPackageConflicts: true
+    majorVersion: '$(Major)'
+    minorVersion: '$(Minor)'
+    patchVersion: '$(Patch)'
