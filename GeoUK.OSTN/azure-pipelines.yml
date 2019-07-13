@@ -26,7 +26,7 @@ steps:
   inputs:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
-    projects: 'GeoUK/GeoUK.OSTN.csproj'
+    projects: 'GeoUK.OSTN/GeoUK.OSTN.csproj'
 
 # Unit tests    
 - task: VSTest@2
@@ -46,7 +46,7 @@ steps:
   inputs:
     command: pack
     arguments: '--configuration $(buildConfiguration)'
-    packagesToPack: 'GeoUK/GeoUK.OSTN.csproj'
+    packagesToPack: 'GeoUK.OSTN/GeoUK.OSTN.csproj'
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'
