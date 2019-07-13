@@ -13,5 +13,6 @@
     <PackageTags>Geodetic, Geo, WGS84, BNG, OS, coordinate, OSGB36</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>LGPL3.0</PackageLicenseExpression>
+    <PackageId>IeuanWalker.GeoUK</PackageId>
   </PropertyGroup>
 </Project>
