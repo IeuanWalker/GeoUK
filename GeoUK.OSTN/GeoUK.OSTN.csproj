@@ -29,9 +29,9 @@
     <PackageIconUrl>https://github.com/IeuanWalker/GeoUK/blob/master/icon.png?raw=true</PackageIconUrl>
     <RepositoryUrl>https://github.com/IeuanWalker/GeoUK</RepositoryUrl>
     <PackageTags>Geodetic, Geo, WGS84, BNG, OS, coordinate, OSGB36</PackageTags>
-    <PackageLicenseExpression>LGPL3.0</PackageLicenseExpression>
+    <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>IeuanWalker.GeoUK.OSTN</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 </Project>
