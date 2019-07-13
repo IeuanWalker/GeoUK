@@ -7,6 +7,8 @@ The original authors have created a blog post detailing how to use both NuGet pa
 
 
 # GeoUK
+[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=7&branchName=master)
+
 The project allows for a conversion from GPS coordinates to British National Grid and back again. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
 # GeoUK.OSTN
