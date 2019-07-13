@@ -33,7 +33,7 @@ steps:
   displayName: Unit tests
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\$(BuildConfiguration)\*\*GeoUK.OSTN.Tests.dll'
+    testAssemblyVer2: '**\$(BuildConfiguration)\*GeoUK.OSTN.Tests.dll'
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
 # The second task is dotnet pack command again pointing to the csproj file
