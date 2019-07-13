@@ -28,12 +28,12 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     projects: 'GeoUK/GeoUK.csproj'
 
-# Run tests
+# Unit tests    
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **\*test*.dll
+      **/*GeoUK.OSTN.Tests.dll
       !**\*TestAdapter.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
