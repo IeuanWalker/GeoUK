@@ -5,7 +5,9 @@
   <PropertyGroup>
     <Authors>Ieuan Walker</Authors>
     <Company />
-    <Description>Geodetic transformations for UK based coordinate systems.</Description>
+    <Description>This is a simple to use Geodetic Library for .Net that will allow simple transformation to and from British National Grid. See the project page for details on how to use this package.
+
+This is a port of the original GeoUK NuGet but converted to .NET Stanadard.</Description>
     <Copyright>Ieuan Walker</Copyright>
     <PackageProjectUrl>https://github.com/IeuanWalker/GeoUK</PackageProjectUrl>
     <PackageIconUrl>https://github.com/IeuanWalker/GeoUK/blob/master/icon.png?raw=true</PackageIconUrl>
@@ -14,6 +16,6 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
     <PackageId>IeuanWalker.GeoUK</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 </Project>
