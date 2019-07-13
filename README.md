@@ -8,10 +8,13 @@ The original authors have created a blog post detailing how to use both NuGet pa
 
 # GeoUK
 [![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=7&branchName=master)
+[![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK/)
 
 The project allows for a conversion from GPS coordinates to British National Grid and back again. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
 # GeoUK.OSTN
+[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK.OSTN?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=8&branchName=master)
+
 The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a greater accuracy. A full description of how to use this package can be found in the CodeProject article [Converting Latitude and Longitude to British National Grid in C#](http://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio). The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
 # How to use
