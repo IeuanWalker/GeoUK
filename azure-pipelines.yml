@@ -30,13 +30,14 @@ steps:
 
 # Unit tests    
 - task: VSTest@2
-  displayName: Unit tests
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\$(BuildConfiguration)\GeoUK.OSTN.Tests.dll'
+    testAssemblyVer2: |
+      **\*tests*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
-
 
 # The second task is dotnet pack command again pointing to the csproj file
 # The nobuild means the project will not be compiled before running pack, because its already built in above step
