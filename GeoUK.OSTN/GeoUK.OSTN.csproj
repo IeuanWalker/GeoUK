@@ -32,5 +32,6 @@
     <PackageLicenseExpression>LGPL3.0</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>IeuanWalker.GeoUK.OSTN</PackageId>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 </Project>

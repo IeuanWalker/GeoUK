@@ -14,5 +14,6 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>LGPL3.0</PackageLicenseExpression>
     <PackageId>IeuanWalker.GeoUK</PackageId>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 </Project>
