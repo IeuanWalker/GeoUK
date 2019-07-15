@@ -21,7 +21,7 @@ The project allows for a conversion from GPS coordinates to British National Gri
 ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.OSTN.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK.OSTN/)
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
-The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a greater accuracy. A full description of how to use this package can be found in the CodeProject article [Converting Latitude and Longitude to British National Grid in C#](http://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio). The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
+The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a greater accuracy. It should be noted that the this package contains the OSGM02 geoid and OSTN02 OSTN15 transformations, as a result is fairly large, in addition, transformations will be slower than using the Helmert transformations as used in the above nuget. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
 # How to use
 
