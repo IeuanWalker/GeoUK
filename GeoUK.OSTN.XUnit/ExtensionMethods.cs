@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GeoUK.OSTN.Tests
+namespace GeoUK.OSTN.XUnit
 {
     // Source: https://scottlilly.com/c-tip-how-to-check-if-two-double-values-are-equal/
     public static class ExtensionMethods

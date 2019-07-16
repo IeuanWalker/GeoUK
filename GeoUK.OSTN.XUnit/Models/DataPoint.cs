@@ -1,4 +1,4 @@
-﻿namespace GeoUK.OSTN.Tests.Models
+﻿namespace GeoUK.OSTN.XUnit.Models
 {
     public class DataPoint
     {

@@ -1,11 +1,11 @@
-﻿using GeoUK.Coordinates;
-using GeoUK.OSTN.Tests.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using GeoUK.Coordinates;
+using GeoUK.OSTN.XUnit.Models;
 using Xunit;
 
-namespace GeoUK.OSTN.Tests
+namespace GeoUK.OSTN.XUnit
 {
     public class TransformTests
     {

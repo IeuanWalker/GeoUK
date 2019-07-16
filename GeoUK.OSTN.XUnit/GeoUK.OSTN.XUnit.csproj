@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestInput_ETRS89toIG.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestInput_IGtoETRS89.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestOutput_ETRS89toIG.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestOutput_IGtoETRS89.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestFiles_README.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestInput_ETRStoOSGB.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestInput_OSGBtoETRS.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestOutput_ETRStoOSGB.txt" />
+    <None Remove="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestOutput_OSGBtoETRS.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestInput_ETRS89toIG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestInput_IGtoETRS89.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestOutput_ETRS89toIG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSGM15_NI_TestOutput_IGtoETRS89.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestFiles_README.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestInput_ETRStoOSGB.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestInput_OSGBtoETRS.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestOutput_ETRStoOSGB.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestDataFiles_OSGM15_OSTN15\OSTN15_OSGM15_TestOutput_OSGBtoETRS.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeoUK.OSTN\GeoUK.OSTN.csproj" />
+    <ProjectReference Include="..\GeoUK\GeoUK.csproj" />
+  </ItemGroup>
+</Project>

@@ -3,9 +3,9 @@ using DemoProject.Examples;
 
 namespace DemoProject
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             EastingNorthingToLatitudeLongitude.Example();
 
