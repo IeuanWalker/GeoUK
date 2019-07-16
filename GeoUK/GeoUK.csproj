@@ -16,6 +16,6 @@ This is a port of the original GeoUK NuGet but converted to .NET Stanadard.</Des
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
     <PackageId>IeuanWalker.GeoUK</PackageId>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 </Project>
