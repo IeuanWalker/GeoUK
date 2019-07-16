@@ -25,7 +25,7 @@ The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a gr
 
 # How to use
 
-> Install > [GeoUK](https://www.nuget.org/packages/IeuanWalker.GeoUK/)
+> Install [GeoUK](https://www.nuget.org/packages/IeuanWalker.GeoUK/)
 
 ## Convert Easting/ Northing to Latitude/ Longitude 
 1.  Convert to Cartesian
@@ -72,7 +72,7 @@ This rubber sheet geoid is effectively a lookup table that can be used to determ
 
 The GeoUK.OSTN Nuget package extends the GeoUK package to include OSGM02/OSTN0 and OSTN15 functionality and provides a simple method to make an accurate one-way transformation from ETRS89 to BNG. The package can be added to a project using the following Package Manager command. The package is dependent upon the GeoUK package and will add it as required.
 
-> Install > [GeoUK.OSTN]()
+> Install [GeoUK.OSTN]()
 
 It should be noted that the `GeoUK.OSTN` package contains the OSGM02 geoid and OSTN02 OSTN15 transformations, as a result is fairly large, in addition, transformations will be slower than using the Helmert transformations as used in the examples above.
 
