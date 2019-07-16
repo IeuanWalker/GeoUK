@@ -41,7 +41,7 @@ Cartesian cartesian = Convert.ToCartesian(new Airy1830(),
 ```
 2. Transform from OSBB36 datum to ETRS89 datum
 ```csharp
-Cartesian wgsCartesian = Transform.OSBB36ToEtrs89(cartesian); //ETRS89 is effectively WGS84
+Cartesian wgsCartesian = Transform.Osgb36ToEtrs89(cartesian); //ETRS89 is effectively WGS84
 ```
 3. Convert back to Latitude/Longitude
 ```csharp
