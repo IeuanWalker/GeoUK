@@ -25,7 +25,7 @@ namespace DemoProject.Examples
                 new BritishNationalGrid(),
                 new EastingNorthing(easting, northing));
 
-            Cartesian wgsCartesian = Transform.OSBB36ToEtrs89(cartesian); //ETRS89 is effectively WGS84
+            Cartesian wgsCartesian = Transform.Osgb36ToEtrs89(cartesian); //ETRS89 is effectively WGS84
 
             LatitudeLongitude wgsLatLong = Convert.ToLatitudeLongitude(new Wgs84(), wgsCartesian);
 
