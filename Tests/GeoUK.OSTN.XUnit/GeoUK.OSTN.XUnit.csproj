@@ -58,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GeoUK.OSTN\GeoUK.OSTN.csproj" />
-    <ProjectReference Include="..\GeoUK\GeoUK.csproj" />
+    <ProjectReference Include="..\..\GeoUK.OSTN\GeoUK.OSTN.csproj" />
+    <ProjectReference Include="..\..\GeoUK\GeoUK.csproj" />
   </ItemGroup>
 </Project>
