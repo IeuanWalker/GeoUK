@@ -34,7 +34,8 @@ steps:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
       **\*GeoUK.OSTN.XUnit.dll
-      **\Test\*GeoUK.OSTN.XUnit.dll
+      **\Tests\GeoUK.OSTN.XUnit\*GeoUK.OSTN.XUnit.dll
+      **\Tests\GeoUK.OSTN.XUnit\GeoUK.OSTN.XUnit.dll
       **\*test*.dll
       **\*XUnit*.dll
       !**\*TestAdapter.dll
@@ -52,8 +53,7 @@ steps:
     packagesToPack: 'GeoUK.OSTN/GeoUK.OSTN.csproj'
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
-    patchVersion: '$(Patch)'
-  
+    patchVersion: '$(Patch)'  
 
 # The last task is a nuget command, nuget push
 # This will push any .nupkg files to the 'TestFeed' artifact feed
