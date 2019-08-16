@@ -33,7 +33,7 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **/*GeoUK.OSTN.Tests.dll
+      **/*GeoUK.OSTN.XUnit.dll
       !**\*TestAdapter.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
