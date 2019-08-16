@@ -9,9 +9,7 @@ namespace GeoUK.OSTN
     internal static class ResourceManager
     {
         private static Dictionary<int, OstnDataRecord> _ostn02Data;
-
         public static Dictionary<int, OstnDataRecord> Ostn02Data => _ostn02Data ?? (_ostn02Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN02));
-
         private static Dictionary<int, OstnDataRecord> _ostn15Data;
 
         public static Dictionary<int, OstnDataRecord> Ostn15Data => _ostn15Data ?? (_ostn15Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN15));
