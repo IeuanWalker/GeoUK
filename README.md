@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7e9e6fe8844188911c8a69a2e9905a)](https://app.codacy.com/app/ieuan.walker007/GeoUK?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/GeoUK&utm_campaign=Badge_Grade_Dashboard)
+![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/GeoUK) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7e9e6fe8844188911c8a69a2e9905a)](https://app.codacy.com/app/ieuan.walker007/GeoUK?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/GeoUK&utm_campaign=Badge_Grade_Dashboard)
 
 This is port from [GeoUK](https://bitbucket.org/johnnewcombe/geouk/src/master/). I created this port to convert the project to .NET Standard
 
@@ -7,19 +7,24 @@ The original authors have created a blog post detailing how to use both NuGet pa
 > TIP: When working with locations i like to use this website - [Grid reference finder](https://gridreferencefinder.com/)
 
 
-# GeoUK
-[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=7&branchName=master)
-[![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.svg)
-![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK/)
+# GeoUK [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.svg) ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK/)
+
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+
+[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=7&branchName=master)
+
+
+
 
 The project allows for a conversion from GPS coordinates to British National Grid and back again. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
-# GeoUK.OSTN
-[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK.OSTN?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=8&branchName=master)
-[![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.OSTN.svg)
-![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.OSTN.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK.OSTN/)
+# GeoUK.OSTN [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.OSTN.svg) ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.OSTN.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK.OSTN/)
+
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+
+[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK.OSTN?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=8&branchName=master)
+
+
 
 The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a greater accuracy. It should be noted that the this package contains the OSGM02 geoid and OSTN02 OSTN15 transformations, as a result is fairly large, in addition, transformations will be slower than using the Helmert transformations as used in the above nuget. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
