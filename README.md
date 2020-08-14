@@ -1,4 +1,4 @@
-![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/GeoUK) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7e9e6fe8844188911c8a69a2e9905a)](https://app.codacy.com/app/ieuan.walker007/GeoUK?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/GeoUK&utm_campaign=Badge_Grade_Dashboard)
+![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/GeoUK) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7e9e6fe8844188911c8a69a2e9905a)](https://app.codacy.com/app/ieuan.walker007/GeoUK?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/GeoUK&utm_campaign=Badge_Grade_Dashboard) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK?ref=badge_shield)
 
 This is port from [GeoUK](https://bitbucket.org/johnnewcombe/geouk/src/master/). I created this port to convert the project to .NET Standard
 
