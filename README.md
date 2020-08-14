@@ -1,4 +1,4 @@
-![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/GeoUK) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7e9e6fe8844188911c8a69a2e9905a)](https://app.codacy.com/app/ieuan.walker007/GeoUK?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/GeoUK&utm_campaign=Badge_Grade_Dashboard)
+![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/GeoUK) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7e9e6fe8844188911c8a69a2e9905a)](https://app.codacy.com/app/ieuan.walker007/GeoUK?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/GeoUK&utm_campaign=Badge_Grade_Dashboard) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK?ref=badge_shield)
 
 This is port from [GeoUK](https://bitbucket.org/johnnewcombe/geouk/src/master/). I created this port to convert the project to .NET Standard
 
@@ -90,3 +90,7 @@ Osgb36 bng = GeoUK.OSTN.Transform.Etrs89ToOsgb(latLong);
 
 # Liecence
 Both NuGet packages are licenced under [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html). This to respect the previous arthors licence. Learn more [here.](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK?ref=badge_large)
