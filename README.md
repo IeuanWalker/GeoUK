@@ -10,6 +10,7 @@ The original authors have created a blog post detailing how to use both NuGet pa
 # GeoUK [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.svg) ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK/)
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK?ref=badge_shield)
 
 [![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=7&branchName=master)
 
@@ -90,3 +91,7 @@ Osgb36 bng = GeoUK.OSTN.Transform.Etrs89ToOsgb(latLong);
 
 # Liecence
 Both NuGet packages are licenced under [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html). This to respect the previous arthors licence. Learn more [here.](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK?ref=badge_large)
