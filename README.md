@@ -88,7 +88,7 @@ LatitudeLongitude latLong = new LatitudeLongitude(51.469886, -3.1636964, 108.05)
 Osgb36 bng = GeoUK.OSTN.Transform.Etrs89ToOsgb(latLong);
 ```
 
-# Liecence
+# License
 Both NuGet packages are licenced under [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html). This to respect the previous arthors licence. Learn more [here.](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))
 
 
