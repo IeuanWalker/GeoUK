@@ -41,7 +41,7 @@ namespace GeoUK.Coordinates
             : base(easting, northing, 0)
         {
             RegionGeoidDatum = Osgb36GeoidDatum.NewlynUkMainland;
-            OsDigits = OsDigitsType.OsDigits8;
+            OsDigits = OsDigitsType.OsDigits6;
         }
 
         /// <summary>
@@ -117,11 +117,11 @@ namespace GeoUK.Coordinates
                         northing = Math.Round(northing / 1000);
                         easting = Math.Round(easting / 1000);
                         return $"{bngSquare}{Math.Round(easting):00}{Math.Round(northing):00}";
+                    default:
                     case OsDigitsType.OsDigits6: // 100m (6-figure) Grid Reference: TL123456 = 512300 Easting 245600 Northing
                         northing = Math.Round(northing / 100);
                         easting = Math.Round(easting / 100);
                         return $"{bngSquare}{Math.Round(easting):000}{Math.Round(northing):000}";
-                    default:
                     case OsDigitsType.OsDigits8:// 10m (8-figure) Grid Reference
                         northing = Math.Round(northing / 10);
                         easting = Math.Round(easting / 10);
