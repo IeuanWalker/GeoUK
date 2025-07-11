@@ -1,30 +1,19 @@
-![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=IeuanWalker/GeoUK) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7e9e6fe8844188911c8a69a2e9905a)](https://app.codacy.com/app/ieuan.walker007/GeoUK?utm_source=github.com&utm_medium=referral&utm_content=IeuanWalker/GeoUK&utm_campaign=Badge_Grade_Dashboard) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK?ref=badge_shield)
-
-This is port from [GeoUK](https://bitbucket.org/johnnewcombe/geouk/src/master/). I created this port to convert the project to .NET Standard
+This is a port from [GeoUK](https://bitbucket.org/johnnewcombe/geouk/src/master/). I created this port to convert the project to .NET Standard
 
 The original authors have created a blog post detailing how to use both NuGet packages - [Converting Latitude and Longitude to British National Grid in C#](http://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio). Please go and read this article to get a better understanding of the concepts used. 
 
-> TIP: When working with locations i like to use this website - [Grid reference finder](https://gridreferencefinder.com/)
+> TIP: When working with locations, I like to use this website - [Grid reference finder](https://gridreferencefinder.com/)
 
 
-# GeoUK [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.svg) ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK/)
+# GeoUK [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.svg) ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK/) [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
-[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
-
-[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=7&branchName=master)
 
 
 
 
 The project allows for a conversion from GPS coordinates to British National Grid and back again. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
-# GeoUK.OSTN [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.OSTN.svg) ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.OSTN.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK.OSTN/)
-
-[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
-
-[![Build Status](https://dev.azure.com/ieuanwalker/GeoUK/_apis/build/status/IeuanWalker.GeoUK.OSTN?branchName=master)](https://dev.azure.com/ieuanwalker/GeoUK/_build/latest?definitionId=8&branchName=master)
-
-
+# GeoUK.OSTN [![Nuget](https://img.shields.io/nuget/v/IeuanWalker.GeoUK.OSTN.svg) ![Nuget](https://img.shields.io/nuget/dt/IeuanWalker.GeoUK.OSTN.svg)](https://www.nuget.org/packages/IeuanWalker.GeoUK.OSTN/) [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
 The GeoUk.OSTN project, adds OSTN02 and OSTN15 transformation which provide a greater accuracy. It should be noted that the this package contains the OSGM02 geoid and OSTN02 OSTN15 transformations, as a result is fairly large, in addition, transformations will be slower than using the Helmert transformations as used in the above nuget. The product is licensed under the [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
@@ -89,8 +78,4 @@ Osgb36 bng = GeoUK.OSTN.Transform.Etrs89ToOsgb(latLong);
 ```
 
 # License
-Both NuGet packages are licenced under [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html). This to respect the previous arthors licence. Learn more [here.](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))
-
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FIeuanWalker%2FGeoUK?ref=badge_large)
+Both NuGet packages are licensed under [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl-3.0.en.html). This is to respect the previous author's licence. Learn more [here.](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))
