@@ -12,6 +12,26 @@ namespace GeoUK.Coordinates
     /// </remarks>
     public class Osgb36 : EastingNorthing
     {
+        /// <summary> Number of Digits in OS Grid Reference</summary>
+        public enum OsDigitsType
+        {
+            /// <summary>2 Digits OS Grid Ref 10 km accuracy</summary>
+            OsDigits2,
+            /// <summary>4 Digits OS Grid Ref 1 km accuracy</summary>
+            OsDigits4,
+            /// <summary>6 Digits OS Grid Ref 100 meter accuracy</summary>
+            OsDigits6,
+            /// <summary>8 Digits OS Grid Ref 10 meter accuracy</summary>
+            OsDigits8,
+            /// <summary>10 Digits OS Grid Ref 1 meter accuracy</summary>
+            OsDigits10,
+            /// <summary>12 Digits OS Grid Ref 0.1 meter accuracy</summary>
+            OsDigits12
+        }
+
+        /// <summary> Number of Digits in OS Grid Reference</summary>
+        public static OsDigitsType OsDigits { get; set; } = OsDigitsType.OsDigits6;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Coordinates.Osgb36Cordinates"/> class.
         /// </summary>
@@ -67,11 +87,6 @@ namespace GeoUK.Coordinates
         {
             get
             {
-                /*
-				10km (2-figure) Grid Reference: SO84 = 380000 Easting 240000 Northing
-				1km (4-figure) Grid Reference: NS2468 = 224000 Easting 668000 Northing
-				100m (6-figure) Grid Reference: TL123456 = 512300 Easting 245600 Northing
-				*/
                 double easting = Easting;
                 double northing = Northing;
 
@@ -91,10 +106,34 @@ namespace GeoUK.Coordinates
 
                 northing -= indexNorthing * 100000;
                 easting -= indexEasting * 100000;
-
-                northing = Math.Round(northing / 100);
-                easting = Math.Round(easting / 100);
-                return $"{bngSquare}{Math.Round(easting):000}{Math.Round(northing):000}";
+                switch(OsDigits)
+                {
+                    case OsDigitsType.OsDigits2: //10km(2 - figure) Grid Reference: SO84 = 380000 Easting 240000 Northing
+                        northing = Math.Round(northing / 10000);
+                        easting = Math.Round(easting / 10000);
+                        return $"{bngSquare}{Math.Round(easting):0}{Math.Round(northing):0}";
+                    case OsDigitsType.OsDigits4: //1km(4 - figure) Grid Reference: NS2468 = 224000 Easting 668000 Northing
+                        northing = Math.Round(northing / 1000);
+                        easting = Math.Round(easting / 1000);
+                        return $"{bngSquare}{Math.Round(easting):00}{Math.Round(northing):00}";
+                    default:
+                    case OsDigitsType.OsDigits6: // 100m (6-figure) Grid Reference: TL123456 = 512300 Easting 245600 Northing
+                        northing = Math.Round(northing / 100);
+                        easting = Math.Round(easting / 100);
+                        return $"{bngSquare}{Math.Round(easting):000}{Math.Round(northing):000}";
+                    case OsDigitsType.OsDigits8:// 10m (8-figure) Grid Reference
+                        northing = Math.Round(northing / 10);
+                        easting = Math.Round(easting / 10);
+                        return $"{bngSquare}{Math.Round(easting):0000}{Math.Round(northing):0000}";
+                    case OsDigitsType.OsDigits10:// 1m (10-figure) Grid Reference
+                        northing = Math.Round(northing);
+                        easting = Math.Round(easting);
+                        return $"{bngSquare}{Math.Round(easting):00000}{Math.Round(northing):00000}";
+                    case OsDigitsType.OsDigits12:// 0.1m (12-figure) Grid Reference
+                        northing = Math.Round(northing * 10);
+                        easting = Math.Round(easting * 10);
+                        return $"{bngSquare}{Math.Round(easting):00000}{Math.Round(northing):00000}";
+                }
             }
         }
 
@@ -109,7 +148,8 @@ namespace GeoUK.Coordinates
             string result = string.Empty;
 
             //test for our upper and lower limits
-            if (easting < 0 || easting > 700000 || northing < 0 || northing > 1300000) return result;
+            if(easting < 0 || easting > 700000 || northing < 0 || northing > 1300000)
+                return result;
 
             char[] firstChar = { 'S', 'N', 'H', 'T', 'O', 'J' };
             char[] secondChar = { 'V', 'Q', 'L', 'F', 'A', 'W', 'R', 'M', 'G', 'B', 'X', 'S', 'N', 'H', 'C', 'Y', 'T', 'O', 'J', 'D', 'Z', 'U', 'P', 'K', 'E' };
