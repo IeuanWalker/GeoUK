@@ -36,19 +36,19 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: GeoUK-nuget
-        path: GeoUK/bin/Release/GeoUK.${{ github.event.release.tag_name }}.nupkg
+        path: GeoUK/bin/Release/IeuanWalker.GeoUK.${{ github.event.release.tag_name }}.nupkg
 
     - name: Upload GeoUK.OSTN NuGet package
       uses: actions/upload-artifact@v4
       with:
         name: GeoUK.OSTN-nuget
-        path: GeoUK.OSTN/bin/Release/GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg
+        path: GeoUK.OSTN/bin/Release/IeuanWalker.GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.1.1
 
     - name: Publish GeoUK to NuGet.org
-      run: dotnet nuget push GeoUK/bin/Release/GeoUK.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push GeoUK/bin/Release/IeuanWalker.GeoUK.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET_API_KEY }}
 
     - name: Publish GeoUK.OSTN to NuGet.org
-      run: dotnet nuget push GeoUK.OSTN/bin/Release/GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push GeoUK.OSTN/bin/Release/IeuanWalker.GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET_API_KEY }}
