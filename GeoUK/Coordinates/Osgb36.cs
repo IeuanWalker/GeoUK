@@ -30,7 +30,7 @@ namespace GeoUK.Coordinates
         }
 
         /// <summary> Number of Digits in OS Grid Reference</summary>
-        public static OsDigitsType OsDigits { get; set; }
+        public static OsDigitsType OsDigits { get; set; } = OsDigitsType.OsDigits6;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Coordinates.Osgb36Cordinates"/> class.
@@ -41,7 +41,6 @@ namespace GeoUK.Coordinates
             : base(easting, northing, 0)
         {
             RegionGeoidDatum = Osgb36GeoidDatum.NewlynUkMainland;
-            OsDigits = OsDigitsType.OsDigits6;
         }
 
         /// <summary>
@@ -108,7 +107,7 @@ namespace GeoUK.Coordinates
                 northing -= indexNorthing * 100000;
                 easting -= indexEasting * 100000;
                 switch(OsDigits)
-                {                   
+                {
                     case OsDigitsType.OsDigits2: //10km(2 - figure) Grid Reference: SO84 = 380000 Easting 240000 Northing
                         northing = Math.Round(northing / 10000);
                         easting = Math.Round(easting / 10000);
@@ -149,7 +148,8 @@ namespace GeoUK.Coordinates
             string result = string.Empty;
 
             //test for our upper and lower limits
-            if (easting < 0 || easting > 700000 || northing < 0 || northing > 1300000) return result;
+            if(easting < 0 || easting > 700000 || northing < 0 || northing > 1300000)
+                return result;
 
             char[] firstChar = { 'S', 'N', 'H', 'T', 'O', 'J' };
             char[] secondChar = { 'V', 'Q', 'L', 'F', 'A', 'W', 'R', 'M', 'G', 'B', 'X', 'S', 'N', 'H', 'C', 'Y', 'T', 'O', 'J', 'D', 'Z', 'U', 'P', 'K', 'E' };
