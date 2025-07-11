@@ -9,10 +9,7 @@ namespace GeoUK.OSTN
     internal static class ResourceManager
     {
         private static Dictionary<int, OstnDataRecord> _ostn02Data;
-        public static Dictionary<int, OstnDataRecord> Ostn02Data => _ostn02Data ?? (_ostn02Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN02));
         private static Dictionary<int, OstnDataRecord> _ostn15Data;
-
-        public static Dictionary<int, OstnDataRecord> Ostn15Data => _ostn15Data ?? (_ostn15Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN15));
 
         /// <summary>
         /// Loads the OSTN data into memory.
@@ -25,6 +22,26 @@ namespace GeoUK.OSTN
 
             if (!ostnVersion.HasValue || ostnVersion.Value == OstnVersionEnum.OSTN15)
                 _ostn15Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN15);
+        }
+
+        /// <summary>
+        /// Retrieves the parsed OSTN data from the embedded resource file.
+        /// </summary>
+        /// <param name="ostnVersion"></param>
+        /// <returns></returns>
+        public static Dictionary<int, OstnDataRecord> GetOstnData(OstnVersionEnum ostnVersion)
+        {
+            switch (ostnVersion)
+            {
+                case OstnVersionEnum.OSTN02:
+                    return _ostn02Data ?? (_ostn02Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN02));
+
+                case OstnVersionEnum.OSTN15:
+                    return _ostn15Data ?? (_ostn15Data = RetrieveEmbeddedOSTN(OstnVersionEnum.OSTN15));
+
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         /// <summary>

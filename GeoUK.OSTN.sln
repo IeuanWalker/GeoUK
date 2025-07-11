@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29102.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoUK.OSTN", "GeoUK.OSTN\GeoUK.OSTN.csproj", "{E7C614AC-E67D-4E04-BA4E-E1BBF4CAC6FD}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F752E48A-C054-4F91-ABFB-2A1A5E4E8FAB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoUK.OSTN.XUnit", "Tests\GeoUK.OSTN.XUnit\GeoUK.OSTN.XUnit.csproj", "{DF00AA79-1818-4C7B-BE7E-694E955EAA3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoUK.XUnit", "Tests\GeoUK.XUnit\GeoUK.XUnit.csproj", "{4D366B28-52EC-4CE5-92E9-4E770DEA7335}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{DF00AA79-1818-4C7B-BE7E-694E955EAA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF00AA79-1818-4C7B-BE7E-694E955EAA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF00AA79-1818-4C7B-BE7E-694E955EAA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D366B28-52EC-4CE5-92E9-4E770DEA7335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D366B28-52EC-4CE5-92E9-4E770DEA7335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D366B28-52EC-4CE5-92E9-4E770DEA7335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D366B28-52EC-4CE5-92E9-4E770DEA7335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1BB0810A-37FF-4F68-8C7E-E687A5369E0C} = {848710E1-EBD1-44BA-9F97-C24D760806E9}
 		{DF00AA79-1818-4C7B-BE7E-694E955EAA3D} = {F752E48A-C054-4F91-ABFB-2A1A5E4E8FAB}
+		{4D366B28-52EC-4CE5-92E9-4E770DEA7335} = {F752E48A-C054-4F91-ABFB-2A1A5E4E8FAB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98A4A455-17FF-4B6A-94CF-08A3D5182276}

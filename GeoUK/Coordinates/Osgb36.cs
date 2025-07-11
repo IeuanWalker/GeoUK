@@ -33,7 +33,7 @@ namespace GeoUK.Coordinates
         public static OsDigitsType OsDigits { get; set; } = OsDigitsType.OsDigits6;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Coordinates.Osgb36Cordinates"/> class.
+        /// Initializes a new instance of the <see cref="Osgb36"/> class.
         /// </summary>
         /// <param name="easting">Easting.</param>
         /// <param name="northing">Northing.</param>
@@ -44,7 +44,7 @@ namespace GeoUK.Coordinates
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Coordinates.Osgb36Cordinates"/> class.
+        /// Initializes a new instance of the <see cref="Osgb36"/> class.
         /// </summary>
         /// <param name="eastingNorthingCoordinates">Easting northing coordinates.</param>
         public Osgb36(EastingNorthing eastingNorthingCoordinates)
@@ -54,7 +54,7 @@ namespace GeoUK.Coordinates
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Coordinates.Osgb36Cordinates"/> class.
+        /// Initializes a new instance of the <see cref="Osgb36"/> class.
         /// </summary>
         /// <param name="eastingNorthingCoordinates">Easting northing coordinates.</param>
         /// <param name="datum">Datum.</param>
@@ -65,7 +65,7 @@ namespace GeoUK.Coordinates
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Coordinates.Osgb36Cordinates"/> class.
+        /// Initializes a new instance of the <see cref="Osgb36"/> class.
         /// </summary>
         /// <param name="easting">Easting.</param>
         /// <param name="northing">Northing.</param>
@@ -141,8 +141,8 @@ namespace GeoUK.Coordinates
         /// Returns the two letter OS code based on easting and northing in metres.
         /// </summary>
         /// <returns>The square with northing.</returns>
-        /// <param name="northing">Northing.</param>
         /// <param name="easting">Easting.</param>
+        /// <param name="northing">Northing.</param>
         public static string GetBngSquare(double easting, double northing)
         {
             string result = string.Empty;

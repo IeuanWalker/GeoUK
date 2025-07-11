@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using FluentAssertions;
 using GeoUK.Coordinates;
 using GeoUK.OSTN.XUnit.Models;
 using Xunit;
@@ -61,16 +62,10 @@ namespace GeoUK.OSTN.XUnit
                 Osgb36 transformation = Transform.Etrs89ToOsgb(new LatitudeLongitude(dataPoint.X, dataPoint.Y, dataPoint.Height));
 
                 // Comparing values with a precision of 3 decimals, as they are given in the output file.
-                bool latitudesEqual = outputData[dataPoint.PointID].X
-                    .IsApproximatelyEqualTo(transformation.Easting, 0.001);
-                bool longitudesEqual = outputData[dataPoint.PointID].Y
-                    .IsApproximatelyEqualTo(transformation.Northing, 0.001);
-                bool heightsEqual = outputData[dataPoint.PointID].Height
-                    .IsApproximatelyEqualTo(transformation.Height, 0.001);
-
-                Assert.True(latitudesEqual);
-                Assert.True(longitudesEqual);
-                Assert.True(heightsEqual);
+                DataPoint outputDataPoint = outputData[dataPoint.PointID];
+                outputDataPoint.X.Should().BeApproximately(transformation.Easting, 0.001);
+                outputDataPoint.Y.Should().BeApproximately(transformation.Northing, 0.001);
+                outputDataPoint.Height.Should().BeApproximately(transformation.Height, 0.001);
             }
         }
 
@@ -128,13 +123,9 @@ namespace GeoUK.OSTN.XUnit
                 LatitudeLongitude transformation = Transform.OsgbToEtrs89(new Osgb36(dataPoint.X, dataPoint.Y));
 
                 // Comparing values with a precision of 3 decimals, as they are given in the output file.
-                bool latitudesEqual = outputData[dataPoint.PointID].X
-                    .IsApproximatelyEqualTo(transformation.Latitude, 0.0000000001);
-                bool longitudesEqual = outputData[dataPoint.PointID].Y
-                    .IsApproximatelyEqualTo(transformation.Longitude, 0.0000000001);
-
-                Assert.True(latitudesEqual);
-                Assert.True(longitudesEqual);
+                DataPoint outputDataPoint = outputData[dataPoint.PointID];
+                outputDataPoint.X.Should().BeApproximately(transformation.Latitude, 0.0000000001);
+                outputDataPoint.Y.Should().BeApproximately(transformation.Longitude, 0.0000000001);
             }
         }
     }
