@@ -1,39 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="OSTN02_OSGM02_GB.txt" />
-    <None Remove="OSTN15_OSGM15_DataFile.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="OSTN02_OSGM02_GB.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OSTN15_OSGM15_DataFile.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GeoUK\GeoUK.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <PropertyGroup>
-    <Authors>Ieuan Walker</Authors>
-    <Company>Ieuan Walker</Company>
-    <Copyright>Ieuan Walker</Copyright>
-    <Description>This is a simple to use Geodetic Library for .Net that will allow simple transformation to and from British National Grid. See the project page for details on how to use this package.
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="OSTN02_OSGM02_GB.txt" />
+		<None Remove="OSTN15_OSGM15_DataFile.txt" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="OSTN02_OSGM02_GB.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="OSTN15_OSGM15_DataFile.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\GeoUK\GeoUK.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Properties\" />
+	</ItemGroup>
+	<PropertyGroup>
+		<Authors>Ieuan Walker</Authors>
+		<Company>Ieuan Walker</Company>
+		<Copyright>Ieuan Walker</Copyright>
+		<Description>
+			This is a simple to use Geodetic Library for .Net that will allow simple transformation to and from British National Grid. See the project page for details on how to use this package.
 
-This is a port of the original GeoUK NuGet but converted to .NET Stanadard.</Description>
-    <PackageProjectUrl>https://github.com/IeuanWalker/GeoUK</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/IeuanWalker/GeoUK/blob/master/icon.png?raw=true</PackageIconUrl>
-    <RepositoryUrl>https://github.com/IeuanWalker/GeoUK</RepositoryUrl>
-    <PackageTags>Geodetic, Geo, WGS84, BNG, OS, coordinate, OSGB36</PackageTags>
-    <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>IeuanWalker.GeoUK.OSTN</PackageId>
-    <Version>1.0.5</Version>
-  </PropertyGroup>
+			This is a port of the original GeoUK NuGet but converted to .NET Stanadard.
+		</Description>
+		<PackageProjectUrl>https://github.com/IeuanWalker/GeoUK</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/IeuanWalker/GeoUK</RepositoryUrl>
+		<PackageTags>Geodetic, Geo, WGS84, BNG, OS, coordinate, OSGB36</PackageTags>
+		<PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>IeuanWalker.GeoUK.OSTN</PackageId>
+		<Version>1.0.5</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\icon.png" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 </Project>
