@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+  
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test --configuration Release --no-build --verbosity normal
+
+    - name: Pack GeoUK
+      run: dotnet pack GeoUK/GeoUK.csproj -c Release /p:Version=${{ github.event.release.tag_name }} --no-restore
+
+    - name: Pack GeoUK.OSTN
+      run: dotnet pack GeoUK.OSTN/GeoUK.OSTN.csproj -c Release /p:Version=${{ github.event.release.tag_name }} --no-restore
+
+    - name: Upload GeoUK NuGet package
+      uses: actions/upload-artifact@v4
+      with:
+        name: GeoUK-nuget
+        path: GeoUK/bin/Release/GeoUK.${{ github.event.release.tag_name }}.nupkg
+
+    - name: Upload GeoUK.OSTN NuGet package
+      uses: actions/upload-artifact@v4
+      with:
+        name: GeoUK.OSTN-nuget
+        path: GeoUK.OSTN/bin/Release/GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.1.1
+
+    - name: Publish GeoUK to NuGet.org
+      run: dotnet nuget push GeoUK/bin/Release/GeoUK.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET_API_KEY }}
+
+    - name: Publish GeoUK.OSTN to NuGet.org
+      run: dotnet nuget push GeoUK.OSTN/bin/Release/GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET_API_KEY }}
