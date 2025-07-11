@@ -19,13 +19,13 @@ namespace GeoUK.Coordinates
             OsDigits2,
             /// <summary>4 Digits OS Grid Ref 1 km accuracy</summary>
             OsDigits4,
-            /// <summary>6 Digits OS Grid Ref 100 metre accuracy</summary>
+            /// <summary>6 Digits OS Grid Ref 100 meter accuracy</summary>
             OsDigits6,
-            /// <summary>8 Digits OS Grid Ref 10 metre accuracy</summary>
+            /// <summary>8 Digits OS Grid Ref 10 meter accuracy</summary>
             OsDigits8,
-            /// <summary>10 Digits OS Grid Ref 1 metre accuracy</summary>
+            /// <summary>10 Digits OS Grid Ref 1 meter accuracy</summary>
             OsDigits10,
-            /// <summary>12 Digits OS Grid Ref 0.1 metre accuracy</summary>
+            /// <summary>12 Digits OS Grid Ref 0.1 meter accuracy</summary>
             OsDigits12
         }
 
