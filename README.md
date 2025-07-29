@@ -51,6 +51,30 @@ Cartesian bngCartesian = Transform.Etrs89ToOsgb36(cartesian);
 EastingNorthing bngEN = Convert.ToEastingNorthing(new Airy1830(), new BritishNationalGrid(), bngCartesian); 
 ```
 
+## Generate Polygon Around Point
+The `Polygon.GeneratePolygonAroundPoint` method creates a geodesically accurate polygon around a given latitude/longitude point.
+
+```csharp
+// Generate an 8-sided polygon with 1km radius around London
+var polygon = Polygon.GeneratePolygonAroundPoint(
+    longitude: -0.1276,    // London longitude
+    latitude: 51.5074,     // London latitude  
+    radius: 1000,          // 1000 meters (1km)
+    numberOfPoints: 8      // 8-sided polygon
+);
+
+// Result is List<double[]> where each array is [longitude, latitude]
+// The polygon is automatically closed (first point repeated at end)
+foreach (var coordinate in polygon)
+{
+    double longitude = coordinate[0];
+    double latitude = coordinate[1];
+    Console.WriteLine($"Point: {longitude:F6}, {latitude:F6}");
+}
+```
+> GeoJson is a useful website to test the generated polygon - [GeoJson.io](http://geojson.io/)
+
+
 ## Get OS Map reference
 The map references (Easting/Northing) used in Ordnance Survey maps are divided into 500km squares which are sub-divided into 100km squares. These squares are given a two letter code. The first letter represents the 500km square and the second represents the 100km square within it. A six digit map reference would look something like TL123456 where the first two characters represents the 100km square as indicated on the map with the first three digits of the six representing the easting and the last three digits representing the northing. Using this system means that a map reference is quoted as an easting/northing (in metres) from the square's origin. An EastingNorthing coordinate object, as returned from the transformation described above, can be converted to an OS map reference by using the Osgb36 class as follows:
 ```csharp
