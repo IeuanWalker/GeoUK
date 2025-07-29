@@ -55,7 +55,7 @@ namespace GeoUK.Coordinates
                     new BritishNationalGrid(),
                     new EastingNorthing(easting, northing));
 
-            //ETRS89 is effectively WGS84
+            // ETRS89 is effectively WGS84
             Cartesian wgsCartesian = Transform.Osgb36ToEtrs89(cartesian);
 
             return Convert.ToLatitudeLongitude(new Wgs84(), wgsCartesian);
