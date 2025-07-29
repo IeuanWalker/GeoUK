@@ -91,9 +91,12 @@ namespace GeoUK
                 double lat2 = RadiansToDegrees(lat2Rad);
                 double lon2 = RadiansToDegrees(lon2Rad);
 
-                // Normalize longitude to [-180, 180) range
-                lon2 = ((lon2 + 180.0) % 360.0) - 180.0;
-                if(lon2 <= -180.0)
+                // Normalize longitude to [-180, 180)
+                if(lon2 > 180.0)
+                {
+                    lon2 -= 360.0;
+                }
+                else if(lon2 <= -180.0)
                 {
                     lon2 += 360.0;
                 }
