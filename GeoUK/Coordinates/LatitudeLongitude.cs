@@ -48,6 +48,12 @@ namespace GeoUK.Coordinates
         /// </summary>
         public double EllipsoidalHeight { get; }
 
+        /// <summary>
+        /// Creates a <see cref="LatitudeLongitude"/> object from easting and northing coordinates.
+        /// </summary>
+        /// <param name="easting">The easting coordinate in meters.</param>
+        /// <param name="northing">The northing coordinate in meters.</param>
+        /// <returns>A <see cref="LatitudeLongitude"/> object representing the converted coordinates.</returns>
         public static LatitudeLongitude FromEastingNorthing(double easting, double northing)
         {
             // Convert to Cartesian
