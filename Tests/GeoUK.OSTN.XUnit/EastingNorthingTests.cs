@@ -10,10 +10,10 @@ namespace GeoUK.OSTN.XUnit
         [Fact]
         public void DistanceTo_NullArgument_ThrowsArgumentNullException()
         {
-            // Act
+            // Arrange
             EastingNorthing point = new(100, 200);
 
-            // Assert
+            // Act + Assert
             Assert.Throws<ArgumentNullException>(() => point.DistanceTo(null));
         }
 
@@ -22,9 +22,13 @@ namespace GeoUK.OSTN.XUnit
         {
             // Act
             EastingNorthing point = new(530000, 180000);
+            double expected = 0.0;
+
+            // Act
+            double result = point.DistanceTo(point);
 
             // Assert
-            Assert.Equal(0.0, point.DistanceTo(point));
+            Assert.Equal(expected, result);
         }
 
         [Fact]

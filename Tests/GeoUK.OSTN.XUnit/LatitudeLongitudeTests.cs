@@ -10,21 +10,25 @@ namespace GeoUK.OSTN.XUnit
         [Fact]
         public void DistanceTo_NullArgument_ThrowsArgumentNullException()
         {
-            // Act
+            // Arrange
             LatitudeLongitude point = new(51.5, -0.1);
 
-            // Assert
+            // Act + Assert
             Assert.Throws<ArgumentNullException>(() => point.DistanceTo(null));
         }
 
         [Fact]
         public void DistanceTo_SamePoint_ReturnsZero()
         {
-            // Act
+            // Arrange
             LatitudeLongitude point = new(51.5074, -0.1278);
+            double expected = 0.0;
+
+            // Act
+            double result = point.DistanceTo(point);
 
             // Assert
-            Assert.Equal(0.0, point.DistanceTo(point));
+            Assert.Equal(expected, result);
         }
 
         [Fact]
