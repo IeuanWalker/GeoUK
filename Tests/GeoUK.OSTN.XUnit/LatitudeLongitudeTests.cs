@@ -107,11 +107,11 @@ namespace GeoUK.OSTN.XUnit
         [InlineData(51.482661, -3.1818924, 51.469638, -3.1631993, 1942.4251992397194)]
         [InlineData(51.478255, -3.1827145, 51.484971, -3.1784236, 803.72817130550686)]
         [InlineData(51.474830, -3.1709915, 51.466634, -3.1642457, 1024.1510680061178)]
-        public void DistanceTo_AdHocTests_CorrectValues(double fromLat, double fromLon, double toLat, double toLon, double expected)
+        public void DistanceTo_AdHocTests_CorrectValues(double fromLatitude, double fromLongitude, double toLatitude, double toLongitude, double expected)
         {
             // Arrange
-            LatitudeLongitude from = new(fromLat, fromLon);
-            LatitudeLongitude to = new(toLat, toLon);
+            LatitudeLongitude from = new(fromLatitude, fromLongitude);
+            LatitudeLongitude to = new(toLatitude, toLongitude);
 
             // Act
             double result = from.DistanceTo(to);
