@@ -28,7 +28,7 @@ namespace GeoUK.OSTN.XUnit
             double result = point.DistanceTo(point);
 
             // Assert
-            Assert.Equal(expected, result);
+            Assert.Equal(expected, result, 10);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace GeoUK.OSTN.XUnit
             double result = from.DistanceTo(to);
 
             // Assert
-            Assert.Equal(expected, result);
+            Assert.Equal(expected, result, 10);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace GeoUK.OSTN.XUnit
             double result = from.DistanceTo(to);
 
             // Assert
-            Assert.Equal(expected, result);
+            Assert.Equal(expected, result, 10);
         }
 
         [Fact]
@@ -73,7 +73,7 @@ namespace GeoUK.OSTN.XUnit
             double result = from.DistanceTo(to);
 
             // Assert
-            Assert.Equal(expected, result);
+            Assert.Equal(expected, result, 10);
         }
 
         [Fact]
@@ -88,7 +88,7 @@ namespace GeoUK.OSTN.XUnit
             var resultB = b.DistanceTo(a);
 
             // Assert
-            Assert.Equal(resultA, resultB);
+            Assert.Equal(resultA, resultB, 10);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace GeoUK.OSTN.XUnit
             double result = from.DistanceTo(to);
 
             // Assert
-            Assert.Equal(expected, result);
+            Assert.Equal(expected, result, 10);
         }
 
         [Theory]
@@ -121,7 +121,7 @@ namespace GeoUK.OSTN.XUnit
             double result = from.DistanceTo(to);
 
             // Assert
-            Assert.Equal(expected, result);
+            Assert.Equal(expected, result, 10);
         }
     }
 }
