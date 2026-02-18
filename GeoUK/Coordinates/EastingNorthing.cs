@@ -35,7 +35,7 @@ namespace GeoUK.Coordinates
         public double Height { get; }
 
         /// <summary>
-        /// The distance to another point in metres, including any difference in <see cref="Height"/> . A BNG midpoint
+        /// The distance to another point in metres, including any difference in <see cref="Height"/>. A BNG midpoint
         /// scale-factor correction is applied to the horizontal component automatically. When both points have
         /// <see cref="Height"/> of zero the result equals the 2D horizontal distance.
         /// </summary>
