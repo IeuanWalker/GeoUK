@@ -1,3 +1,6 @@
+using GeoUK.Ellipsoids;
+using GeoUK.Projections;
+
 namespace GeoUK.Coordinates
 {
     /// <summary>
@@ -61,6 +64,20 @@ namespace GeoUK.Coordinates
 
             double deltaHeight = toEastingNorthing.Height - Height;
             return System.Math.Sqrt(horizontal * horizontal + deltaHeight * deltaHeight);
+        }
+
+        /// <summary>
+        ///  Creates a <see cref="EastingNorthing"/> object from latitude and longitude coordinates.
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
+        /// <returns></returns>
+        public static EastingNorthing FromLatitudeLongitude(double latitude, double longitude)
+        {
+            Cartesian cartesian = Convert.ToCartesian(new Wgs84(), new LatitudeLongitude(latitude, longitude));
+            Cartesian bngCartesian = Transform.Etrs89ToOsgb36(cartesian);
+
+            return Convert.ToEastingNorthing(new Airy1830(), new BritishNationalGrid(), bngCartesian);
         }
     }
 }
