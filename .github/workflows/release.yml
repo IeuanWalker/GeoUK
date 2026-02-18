@@ -5,7 +5,9 @@ on:
     types: [published]
 
 jobs:
-  build:
+  build-and-publish:
+    permissions:
+      id-token: write  # enable GitHub OIDC token issuance for this job
 
     runs-on: ubuntu-latest
 
@@ -55,7 +57,7 @@ jobs:
         user: Ieuan
 
     - name: Publish GeoUK to NuGet.org
-      run: nuget push GeoUK/bin/Release/IeuanWalker.GeoUK.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' -ApiKey ${{steps.login.outputs.NUGET_API_KEY}} 
+      run: nuget push GeoUK/bin/Release/IeuanWalker.GeoUK.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' -ApiKey ${{steps.login.outputs.NUGET_API_KEY}}
 
     - name: Publish GeoUK.OSTN to NuGet.org
-      run: nuget push GeoUK.OSTN/bin/Release/IeuanWalker.GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' -ApiKey ${{steps.login.outputs.NUGET_API_KEY}} 
+      run: nuget push GeoUK.OSTN/bin/Release/IeuanWalker.GeoUK.OSTN.${{ github.event.release.tag_name }}.nupkg --source 'https://api.nuget.org/v3/index.json' -ApiKey ${{steps.login.outputs.NUGET_API_KEY}}
