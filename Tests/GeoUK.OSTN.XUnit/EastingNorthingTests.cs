@@ -101,5 +101,23 @@ namespace GeoUK.OSTN.XUnit
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [InlineData(318768, 175746, 326956, 180146, 9298.3661504692882)]
+        [InlineData(318026, 176630, 319301, 175161, 1945.7615360727534)]
+        [InlineData(317961, 176141, 318271, 176883, 804.40854101625268)]
+        [InlineData(318769, 175747, 319223, 174828, 1025.3513569654124)]
+        public void DistanceTo_AdHocTests_CorrectValues(double fromEasting, double fromNorthing, double toEasting, double toNorthing, double expected)
+        {
+            // Arrange
+            EastingNorthing from = new(fromEasting, fromNorthing);
+            EastingNorthing to = new(toEasting, toNorthing);
+
+            // Act
+            double result = from.DistanceTo(to);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }
